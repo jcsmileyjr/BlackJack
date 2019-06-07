@@ -33,7 +33,8 @@
 /*      Nav Component */
 /**********************/
 
-.blackColor {
-  
+/*background color for the nav bar*/
+.navBackground {
+  background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgb(46, 44, 44), #060101);
 }
 

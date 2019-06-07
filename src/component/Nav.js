@@ -6,7 +6,7 @@ import '../App.css';
 export default function Nav(props){
     return(
         <Container>
-            <Row>
+            <Row className="navBackground">
                 <Col className="center orangeColor">
                 Bob
                 </Col>
