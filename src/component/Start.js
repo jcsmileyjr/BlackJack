@@ -5,10 +5,12 @@ import '../App.css';
 
 export default function Start(props){
     return(
-        <Container>
-            <Row><Col className="center"><h3>Are you ready to play</h3></Col></Row>
-            <Row><Col className="center"><h1>Black Jack</h1></Col></Row>
-            <Row className="center redCheque orangeColor"><Col>$5</Col></Row>
+        <Container className="appBackgroundColor orangeColor center">
+            <Row><Col><h3>Are you ready to play</h3></Col></Row>
+            <Row><Col><h1>Black Jack</h1></Col></Row>
+            <Row className="redCheque"><Col>$5</Col></Row>
+            <Row><Col>Click to increase by increments of $5 up to your ${props.money}</Col></Row>
+            
         </Container>
     );
 }

@@ -16,7 +16,7 @@ class App extends Component{
     return(
       <div>
       <Nav money={this.state.funds} />
-      <Start />
+      <Start money={this.state.funds} />
     </div>
     );
   }

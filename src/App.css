@@ -16,6 +16,11 @@
   color: #F3E40E;
 }
 
+/*Primary background color in app*/
+.appBackgroundColor {
+  background-color: #089108;
+}
+
 /*Show the red cheques picture in the back ground*/
 .redCheque {
   background-image: url('./assets/redcheque-com.png');
