@@ -1,1 +1,39 @@
+/**********************/
+/*      General       */
+/**********************/
+/*USe to pull things to the right in app*/
+.pull-right {
+  text-align: right;
+}
+
+/*Used to center align things throughout the app*/
+.center {
+  text-align: center;
+}
+
+/*Primary color use in app*/
+.orangeColor {
+  color: #F3E40E;
+}
+
+/*Show the red cheques picture in the back ground*/
+.redCheque {
+  background-image: url('./assets/redcheque-com.png');
+  background-repeat: no-repeat;/*make only one pic instead of several*/
+  background-position: center; /*center align pic*/
+  height: 40vh;/*set the hight of the picture*/
+  font-size: 10vh;/*set the font-size of the data showing on top of the pic*/
+  display: flex;/*code to center the dollar amount showing on top of the picture*/
+  justify-content: center;
+  align-items: center;
+}
+
+
+/**********************/
+/*      Nav Component */
+/**********************/
+
+.blackColor {
+  
+}
 

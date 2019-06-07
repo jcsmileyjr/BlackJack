@@ -1,15 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 
 import './App.css';
 import Nav from './component/Nav';
+import Start from './component/Start';
 
-function App() {
-  return (
-    <div>
-      <Nav />
+class App extends Component{
+  constructor(props){
+    super(props);
+    this.state={
+      funds:100,
+    }
+  }
+
+  render(){
+    return(
+      <div>
+      <Nav money={this.state.funds} />
+      <Start />
     </div>
-  );
+    );
+  }
 }
-
 export default App;
