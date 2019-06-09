@@ -1,1 +1,60 @@
+/**********************/
+/*      General       */
+/**********************/
+/*USe to pull things to the right in app*/
+.pull-right {
+  text-align: right;
+}
+
+/*Used to center align things throughout the app*/
+.center {
+  text-align: center;
+}
+
+/*Primary color use in app*/
+.orangeColor {
+  color: #F3E40E;
+}
+
+/*Primary background color in app*/
+.appBackgroundColor {
+  background-image: radial-gradient(circle,#089108, #089108 ,rgb(4, 68, 4));
+  height: 100vh;
+}
+
+/*Show the red cheques picture in the back ground*/
+.redCheque {
+  background-image: url('./assets/redcheque-com.png');
+  background-repeat: no-repeat;/*make only one pic instead of several*/
+  background-position: center; /*center align pic*/
+  height: 40vh;/*set the hight of the picture*/
+  font-size: 10vh;/*set the font-size of the data showing on top of the pic*/
+  display: flex;/*code to center the dollar amount showing on top of the picture*/
+  justify-content: center;
+  align-items: center;
+}
+
+
+/**********************/
+/*      Nav Component */
+/**********************/
+
+/*background color for the nav bar*/
+.navBackground {
+  background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgb(46, 44, 44), #060101);
+}
+
+/**********************/
+/* Start Component */
+/**********************/
+
+.buttonTextStyle {
+  font-size: 5vh;
+  background-color:#F3E40E;
+  margin-top:2vh;
+  margin-bottom: 2vh; 
+  box-shadow: 1px 2px 5px 2px rgb(58, 70, 60); /*shadow under the button*/
+}
+
+
 

@@ -6,9 +6,12 @@ import '../App.css';
 export default function Nav(props){
     return(
         <Container>
-            <Row>
-                <Col>
-                Bob
+            <Row className="navBackground">
+                <Col className="center orangeColor">
+                BlackJack
+                </Col>
+                <Col className="center orangeColor">
+                    Funds ${props.money}
                 </Col>
             </Row>
         </Container>
