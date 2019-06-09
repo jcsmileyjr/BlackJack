@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Row, Col} from 'react-bootstrap';
 
 import '../App.css';
+import LetsPlayButton from './LetsPlayButton';
 
 export default function Start(props){
     return(
@@ -10,7 +11,7 @@ export default function Start(props){
             <Row><Col><h1>Black Jack</h1></Col></Row>
             <Row className="redCheque"><Col>$5</Col></Row>
             <Row><Col>Click to increase by increments of $5 up to your ${props.money}</Col></Row>
-            
+            <Row><Col><LetsPlayButton /></Col></Row>
         </Container>
     );
 }

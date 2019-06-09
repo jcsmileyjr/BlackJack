@@ -18,7 +18,8 @@
 
 /*Primary background color in app*/
 .appBackgroundColor {
-  background-color: #089108;
+  background-image: radial-gradient(circle,#089108, #089108 ,rgb(4, 68, 4));
+  height: 101vh;
 }
 
 /*Show the red cheques picture in the back ground*/
@@ -42,4 +43,17 @@
 .navBackground {
   background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgb(46, 44, 44), #060101);
 }
+
+/**********************/
+/* LetsPlay Component */
+/**********************/
+
+.buttonTextStyle {
+  font-size: 5vh;
+  background-color:#F3E40E;
+  margin-top:2vh;
+  margin-bottom: 2vh; 
+}
+
+
 
