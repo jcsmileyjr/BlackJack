@@ -45,7 +45,7 @@
 }
 
 /**********************/
-/* LetsPlay Component */
+/* Start Component */
 /**********************/
 
 .buttonTextStyle {
@@ -53,6 +53,7 @@
   background-color:#F3E40E;
   margin-top:2vh;
   margin-bottom: 2vh; 
+  box-shadow: 1px 2px 5px 2px rgb(58, 70, 60); /*shadow under the button*/
 }
 
 
