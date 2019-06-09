@@ -45,8 +45,6 @@ class App extends Component{
         currentBet: previousState.currentBet + 5,
       }));
     }
-
-    console.log("ran");
   }  
 
   render(){
