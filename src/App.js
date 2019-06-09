@@ -15,7 +15,7 @@ function StartGame(props){
               lg={{span:6, offset:3}}
               xl={{span:6, offset:3}}>
           <Nav money={props.money} />
-          <Start money={props.money} />        
+          <Start money={props.money} bet={props.bet} addToBet={props.addToBet} />        
         </Col>
       </Row>
 
@@ -29,14 +29,33 @@ class App extends Component{
     this.state={
       funds:100,
       startPlay: false,
+      currentBet: 5,
     }
   }
+
+  //method to increase the bet amount up to the fund limit. If the bet amount is greater then fund
+  //then the bet amount start over at 5.
+  increaseBet = () =>{
+    if(this.state.currentBet >= this.state.funds){
+      this.setState(previousState => ({
+        currentBet: 5,
+      }));      
+    }else {
+      this.setState(previousState => ({
+        currentBet: previousState.currentBet + 5,
+      }));
+    }
+
+    console.log("ran");
+  }  
 
   render(){
     return(
       <Container>
         {this.state.startPlay === false &&
-        <StartGame money={this.state.funds} />
+        <StartGame  money={this.state.funds} 
+                    addToBet = {this.increaseBet}
+                    bet={this.state.currentBet} />
         }
       </Container>
     );
