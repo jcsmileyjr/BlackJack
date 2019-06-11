@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
 import './App.css';
+import {cards} from './component/cardDeck';
 import Nav from './component/Nav';
 import Start from './component/Start';
 import PlayArea from './component/PlayArea';
@@ -17,7 +18,7 @@ function PlayGame(props){
               lg={{span:6, offset:3}}
               xl={{span:6, offset:3}}>
           <Nav money={props.money} />
-          <PlayArea />        
+          <PlayArea dealerCards={props.dealerCards} playerCards={props.playerCards} />        
         </Col>
       </Row>
 
@@ -50,6 +51,8 @@ class App extends Component{
       funds:100,
       startPlay: true,
       currentBet: 5,
+      dealerStack:[cards[1], cards[2]],
+      playerStack:[cards[3], cards[4]],
     }
   }
 
@@ -76,7 +79,7 @@ class App extends Component{
                     bet={this.state.currentBet} />
         }
         {this.state.startPlay === true &&
-          <PlayGame money={this.state.funds} />
+          <PlayGame money={this.state.funds} dealerCards={this.state.dealerStack} playerCards={this.state.playerStack} />
         }
       </Container>
     );

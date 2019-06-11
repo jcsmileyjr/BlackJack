@@ -5,7 +5,7 @@ import '../App.css';
 
 function Card(props){
     return(
-        <Container className="cardStyle">
+        <Container className="cardStyle playArea">
             <Row>
                 <Col>{props.cardValue}</Col>
             </Row>
@@ -13,7 +13,9 @@ function Card(props){
     );
 }
 
+
 export default function CardArea(props){
+
     return(
         <Container>
             <Row className={`playArea ${props.bgColor}`}>
@@ -21,7 +23,9 @@ export default function CardArea(props){
                 <Col className="center" xs={2}>10</Col>
             </Row>
             <Row>
-                <Card cardValue={10} />
+                {props.cardsGiven.map(function(deck){
+                    return <Card cardValue={deck.value} />
+                })}
             </Row>
         </Container>
     );
