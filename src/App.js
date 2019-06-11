@@ -1,9 +1,29 @@
 import React, { Component } from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
 
 import './App.css';
 import Nav from './component/Nav';
 import Start from './component/Start';
-import { Container, Row, Col } from 'react-bootstrap';
+import PlayArea from './component/PlayArea';
+
+
+function PlayGame(props){
+  return(
+    <Container>
+      <Row>
+        <Col  xs={{span:12}} 
+              sm={{span:10, offset:1}}
+              md={{span:8, offset:2}}
+              lg={{span:6, offset:3}}
+              xl={{span:6, offset:3}}>
+          <Nav money={props.money} />
+          <PlayArea />        
+        </Col>
+      </Row>
+
+    </Container>
+  );
+}
 
 function StartGame(props){
   return(
@@ -28,7 +48,7 @@ class App extends Component{
     super(props);
     this.state={
       funds:100,
-      startPlay: false,
+      startPlay: true,
       currentBet: 5,
     }
   }
@@ -54,6 +74,9 @@ class App extends Component{
         <StartGame  money={this.state.funds} 
                     addToBet = {this.increaseBet}
                     bet={this.state.currentBet} />
+        }
+        {this.state.startPlay === true &&
+          <PlayGame money={this.state.funds} />
         }
       </Container>
     );

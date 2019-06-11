@@ -56,5 +56,33 @@
   box-shadow: 1px 2px 5px 2px rgb(58, 70, 60); /*shadow under the button*/
 }
 
+/**********************/
+/* CardArea Component */
+/**********************/
+
+/*Background color for the dealer card area*/
+.dealerAreaColor {
+  background-color: lightgreen;
+}
+
+/*Background color for the plyaer card area*/
+.playerAreaColor {
+  background-color: aqua;
+}
+
+/*whitespace on CardArea components between the dealer and player card areas*/
+.playArea {
+  margin-top: 1rem;
+}
+
+/**********************/
+/* Card Component */
+/**********************/
+
+.cardStyle {
+  height: 10rem;
+  background-color: white;
+}
+
 
 
