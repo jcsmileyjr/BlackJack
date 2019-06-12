@@ -51,9 +51,36 @@ class App extends Component{
       funds:100,
       startPlay: true,
       currentBet: 5,
-      dealerStack:[cards[1], cards[2]],
-      playerStack:[cards[3], cards[4]],
+      dealerStack:[],
+      playerStack:[],
     }
+  }
+
+  componentDidMount() {
+    this.dealCards();//Testing
+  }
+
+  //At the beginning of the game the player is dealt 2 face up cards and the dealer one face up/one face down
+  dealCards = () =>{
+
+    let playerCards = [];
+    const playerCard1 = Math.floor(Math.random() * cards.length) + 1;
+    let playerCard2 = Math.floor(Math.random() * cards.length) + 1;
+
+    if(playerCard2 === playerCard1){
+      playerCard2 = Math.floor(Math.random() * cards.length) + 1;
+    }
+
+    playerCards.push(cards[playerCard1]);
+    playerCards.push(cards[playerCard2]);
+
+    let dealerCards = [];
+    const dealerCard1 = Math.floor(Math.random() * cards.length) + 1;
+
+    dealerCards.push(cards[dealerCard1]);
+    dealerCards.push(cards[0]);
+
+    this.setState({playerStack: playerCards, dealerStack:dealerCards});
   }
 
   //method to increase the bet amount up to the fund limit. If the bet amount is greater then fund

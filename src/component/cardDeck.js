@@ -1,12 +1,12 @@
 //import aceHeart from '../assets/aceHeart1p.png';
 export const cards = [
+    {"pic":require("../assets/cover.png"), "value":0, "played":false},
+
     {"pic":require("../assets/aceHeart1p.png"), "value":11, "played":false},
     {"pic":require("../assets/jackHeart.png"), "value":10, "played":false},
     {"pic":require("../assets/kingHeart.png"), "value":10, "played":false},
     {"pic":require("../assets/nineHeart.png"), "value":9, "played":false},
     {"pic":require("../assets/queenHeart.png"), "value":10, "played":false},
-    {"pic":require("../assets/aceHeart1p.png"), "value":0, "played":false},
-    {"pic":require("../assets/aceHeart1p.png"), "value":0, "played":false},
 
     {"pic":require("../assets/aceSpade.png"), "value":11, "played":false},
     {"pic":require("../assets/kingSpades.png"), "value":10, "played":false},
@@ -22,8 +22,6 @@ export const cards = [
     {"pic":require("../assets/tenClubs.png"), "value":10, "played":false},    
 
     {"pic":require("../assets/kingDiamond.png"), "value":10, "played":false},
-    {"pic":require("../assets/aceHeart1p.png"), "value":7, "played":false},
-    {"pic":require("../assets/aceHeart1p.png"), "value":7, "played":false},
-    {"pic":require("../assets/aceHeart1p.png"), "value":7, "played":false},
-    {"pic":require("../assets/aceHeart1p.png"), "value":7, "played":false},
+    {"pic":require("../assets/fiveDiamonds.png"), "value":7, "played":false},
+
 ];
