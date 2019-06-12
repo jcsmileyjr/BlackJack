@@ -62,12 +62,12 @@
 
 /*Background color for the dealer card area*/
 .dealerAreaColor {
-  background-color: lightgreen;
+  background-color: #15EC1D;
 }
 
 /*Background color for the plyaer card area*/
 .playerAreaColor {
-  background-color: aqua;
+  background-color: #82F882;
 }
 
 /*whitespace on CardArea components between the dealer and player card areas*/
@@ -80,7 +80,7 @@
 /**********************/
 /*Set the style of the cards in the PlayGame/PlayArea/CardArea Component*/
 .cardStyle {
-  height: 10rem;/*set height of the cards*/
+  height: 5rem;/*set height of the cards*/
   width: 5rem;/*set width of the cards*/
   background-color: transparent;/*hide the background color*/
 }

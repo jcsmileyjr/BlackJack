@@ -17,10 +17,10 @@ function Card(props){
 export default function CardArea(props){
 
     return(
-        <Container>
-            <Row className={`playArea ${props.bgColor}`}>
-                <Col className="center" xs={10}>Dealer</Col>
-                <Col className="center" xs={2}>10</Col>
+        <Container className={`playArea ${props.bgColor}`}>
+            <Row>
+                <Col className="center" xs={10}><h5>Dealer</h5></Col>
+                <Col className="center" xs={2}><h5>10</h5></Col>
             </Row>
             <Row>
                 {props.cardsGiven.map(function(deck, id){
