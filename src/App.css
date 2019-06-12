@@ -78,12 +78,10 @@
 /**********************/
 /* Card Component */
 /**********************/
-
+/*Set the style of the cards in the PlayGame/PlayArea/CardArea Component*/
 .cardStyle {
-  height: 10rem;
-  width: 5rem;
-  background-color: white;
+  height: 10rem;/*set height of the cards*/
+  width: 5rem;/*set width of the cards*/
+  background-color: transparent;/*hide the background color*/
 }
-
-
 
