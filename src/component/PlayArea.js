@@ -9,8 +9,8 @@ export default function PlayArea(props){
         <Container className="appBackgroundColor">
             <Row>
                 <Col>
-                    <CardArea bgColor ="dealerAreaColor" cardsGiven = {props.dealerCards} />
-                    <CardArea bgColor = "playerAreaColor" cardsGiven={props.playerCards} />
+                    <CardArea bgColor ="dealerAreaColor" cardsGiven = {props.dealerCards} total={props.dealerTotal} />
+                    <CardArea bgColor = "playerAreaColor" cardsGiven={props.playerCards} total={props.playerTotal} />
                 </Col>
             </Row>
         </Container>

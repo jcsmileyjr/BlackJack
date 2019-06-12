@@ -22,6 +22,6 @@ export const cards = [
     {"pic":require("../assets/tenClubs.png"), "value":10, "played":false},    
 
     {"pic":require("../assets/kingDiamond.png"), "value":10, "played":false},
-    {"pic":require("../assets/fiveDiamonds.png"), "value":7, "played":false},
+    {"pic":require("../assets/fiveDiamonds.png"), "value":5, "played":false},
 
 ];

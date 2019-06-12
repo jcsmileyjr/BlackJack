@@ -20,7 +20,7 @@ export default function CardArea(props){
         <Container className={`playArea ${props.bgColor}`}>
             <Row>
                 <Col className="center" xs={10}><h5>Dealer</h5></Col>
-                <Col className="center" xs={2}><h5>10</h5></Col>
+                <Col className="center" xs={2}><h5>{props.total}</h5></Col>
             </Row>
             <Row>
                 {props.cardsGiven.map(function(deck, id){

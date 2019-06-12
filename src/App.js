@@ -18,7 +18,10 @@ function PlayGame(props){
               lg={{span:6, offset:3}}
               xl={{span:6, offset:3}}>
           <Nav money={props.money} />
-          <PlayArea dealerCards={props.dealerCards} playerCards={props.playerCards} />        
+          <PlayArea dealerCards={props.dealerCards} 
+                    playerCards={props.playerCards}
+                    playerTotal={props.playerTotal} 
+                    dealerTotal={props.dealerTotal} />        
         </Col>
       </Row>
 
@@ -53,6 +56,8 @@ class App extends Component{
       currentBet: 5,
       dealerStack:[],
       playerStack:[],
+      dealerDeckTotal:0,
+      playerDeckTotal:0,
     }
   }
 
@@ -64,23 +69,41 @@ class App extends Component{
   dealCards = () =>{
 
     let playerCards = [];
-    const playerCard1 = Math.floor(Math.random() * cards.length) + 1;
-    let playerCard2 = Math.floor(Math.random() * cards.length) + 1;
+    const playerCard1 = Math.floor(Math.random() * (cards.length - 1)) + 1;
+    let playerCard2 = Math.floor(Math.random() * (cards.length - 1)) + 1;
 
     if(playerCard2 === playerCard1){
-      playerCard2 = Math.floor(Math.random() * cards.length) + 1;
+      playerCard2 = Math.floor(Math.random() * (cards.length -1 )) + 1;
     }
 
     playerCards.push(cards[playerCard1]);
     playerCards.push(cards[playerCard2]);
 
     let dealerCards = [];
-    const dealerCard1 = Math.floor(Math.random() * cards.length) + 1;
-
+    const dealerCard1 = Math.floor(Math.random() * (cards.length -1 )) + 1;
+console.log("dealer: " + dealerCard1 + " player 1: " + playerCard1 + " player 2: " + playerCard2);
     dealerCards.push(cards[dealerCard1]);
     dealerCards.push(cards[0]);
 
-    this.setState({playerStack: playerCards, dealerStack:dealerCards});
+    this.setState({ playerStack: playerCards, 
+                    dealerStack:dealerCards,
+                    playerDeckTotal: this.getCardPointsTotal(playerCards),
+                    dealerDeckTotal:this.getCardPointsTotal(dealerCards)});
+  }
+
+  //Get a sum of all cards worth and update the state
+  getCardPointsTotal = (deck)=>{
+    console.table(deck);
+    let total = 0;
+    for(var i=0;i<deck.length;i++){
+      if(deck[i].value === 11 && (total + 11) > 21){
+        total += 2;
+        break;
+      }
+      total += deck[i].value;
+    }
+
+    return total;
   }
 
   //method to increase the bet amount up to the fund limit. If the bet amount is greater then fund
@@ -106,7 +129,11 @@ class App extends Component{
                     bet={this.state.currentBet} />
         }
         {this.state.startPlay === true &&
-          <PlayGame money={this.state.funds} dealerCards={this.state.dealerStack} playerCards={this.state.playerStack} />
+          <PlayGame money={this.state.funds}
+                    dealerTotal = {this.state.dealerDeckTotal}
+                    playerTotal = {this.state.playerDeckTotal} 
+                    dealerCards={this.state.dealerStack} 
+                    playerCards={this.state.playerStack} />
         }
       </Container>
     );
