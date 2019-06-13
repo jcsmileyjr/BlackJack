@@ -39,7 +39,7 @@ function StartGame(props){
               lg={{span:6, offset:3}}
               xl={{span:6, offset:3}}>
           <Nav money={props.money} />
-          <Start money={props.money} bet={props.bet} addToBet={props.addToBet} />        
+          <Start start={props.start} money={props.money} bet={props.bet} addToBet={props.addToBet} />        
         </Col>
       </Row>
 
@@ -52,7 +52,7 @@ class App extends Component{
     super(props);
     this.state={
       funds:100,
-      startPlay: true,
+      startPlay: false,
       currentBet: 5,
       dealerStack:[],
       playerStack:[],
@@ -62,7 +62,7 @@ class App extends Component{
   }
 
   componentDidMount() {
-    this.dealCards();//Testing
+    this.dealCards();//Testing purposes
   }
 
   //At the beginning of the game the player is dealt 2 face up cards and the dealer one face up/one face down
@@ -120,11 +120,17 @@ console.log("dealer: " + dealerCard1 + " player 1: " + playerCard1 + " player 2:
     }
   }  
 
+  //called from the start button on the Start Game component to start the game
+  startGame = () =>{
+    this.setState({startPlay:true});
+  }
+
   render(){
     return(
       <Container>
         {this.state.startPlay === false &&
-        <StartGame  money={this.state.funds} 
+        <StartGame  money={this.state.funds}
+                    start={this.startGame}
                     addToBet = {this.increaseBet}
                     bet={this.state.currentBet} />
         }

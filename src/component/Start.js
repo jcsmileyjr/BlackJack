@@ -22,7 +22,8 @@ export default function Start(props){
             </Row>
             <Row><Col>Click to increase your bet, in increments of $5, up to your bank amount of ${props.money}</Col></Row>
             <Row><Col><Button   variant="warning"
-                                className="buttonTextStyle" 
+                                className="buttonTextStyle"
+                                onClick={()=>{props.start()}} 
                                 size="lg" >Let's Play</Button></Col></Row>
         </Container>
     );
