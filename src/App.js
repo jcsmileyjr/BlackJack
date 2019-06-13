@@ -172,7 +172,19 @@ console.log(points);
   //The player double their bet (or go all in), receive one card, and end their turn.
   playerDoubleDown = () =>{
 
-    this.dealACard(this.state.playerStack);//deal the player one card    
+    this.dealACard(this.state.playerStack);//deal the player one card 
+    
+    //update the player's hand total points
+    this.setState({playerDeckTotal: this.getCardPointsTotal(this.state.playerStack)});
+    
+    //double the bet unless that amount is more then the player funds. If so, bet the entire funds amount
+    if((this.state.currentBet*2) > this.state.funds){
+        this.setState({currentBet:this.state.funds})
+    }else{
+      this.setState(previousState => ({
+        currentBet: previousState.currentBet * 2,
+      }));
+    }
   }
 
   render(){
