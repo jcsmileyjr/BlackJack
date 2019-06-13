@@ -7,10 +7,10 @@ export default function Nav(props){
     return(
         <Container>
             <Row className="navBackground">
-                <Col className="center orangeColor">
+                <Col className="center primaryColor">
                 BlackJack
                 </Col>
-                <Col className="center orangeColor">
+                <Col className="center primaryColor">
                     Funds ${props.money}
                 </Col>
             </Row>

@@ -12,14 +12,14 @@
 }
 
 /*Primary color use in app*/
-.orangeColor {
+.primaryColor {
   color: #F3E40E;
 }
 
 /*Primary background color in app*/
 .appBackgroundColor {
   background-image: radial-gradient(circle,#089108, #089108 ,rgb(4, 68, 4));
-  height: 100vh;
+  height: 106vh;
 }
 
 /*Show the red cheques picture in the back ground*/
@@ -27,8 +27,9 @@
   background-image: url('./assets/redcheque-com.png');
   background-repeat: no-repeat;/*make only one pic instead of several*/
   background-position: center; /*center align pic*/
+  background-size: conatin;
   height: 40vh;/*set the hight of the picture*/
-  font-size: 10vh;/*set the font-size of the data showing on top of the pic*/
+  font-size: 5rem;/*set the font-size of the data showing on top of the pic*/
   display: flex;/*code to center the dollar amount showing on top of the picture*/
   justify-content: center;
   align-items: center;
@@ -45,16 +46,77 @@
 }
 
 /**********************/
-/* Start Component */
+/* PrimaryButton Component */
 /**********************/
 
 .buttonTextStyle {
-  font-size: 5vh;
+  font-size: 1rem;
   background-color:#F3E40E;
-  margin-top:2vh;
-  margin-bottom: 2vh; 
+  margin-top:1vh;/*add white space*/  
   box-shadow: 1px 2px 5px 2px rgb(58, 70, 60); /*shadow under the button*/
+  width: 4rem;/*control the width of the button*/
+}
+
+/**********************/
+/* CardArea Component */
+/**********************/
+
+/*Background color for the dealer card area*/
+.dealerAreaColor {
+  background-color: #15EC1D;
+  box-shadow: 1px 2px 5px 2px rgb(58, 70, 60); /*shadow under the table*/
+}
+
+/*Background color for the plyaer card area*/
+.playerAreaColor {
+  background-color: #82F882;
+  box-shadow: 1px 2px 5px 2px rgb(58, 70, 60); /*shadow under the table*/
+}
+
+/*whitespace on CardArea components between the dealer and player card areas*/
+.playArea {
+  margin-top: 1rem;
+  
+}
+
+/**********************/
+/* PlayArea Component */
+/**********************/
+
+/*text style for PlayArea button's instructions*/
+.instructionText {
+  color: #F3E40E;
+  font-size: .8rem;
+}
+
+.centerBetAmountText {
+  display: flex;/*code to center the dollar amount showing on top of the picture*/
+  align-items: center;/*Center the code vertically*/
+  height: 15vh;/*set the height of the container to a certian size*/  
+}
+
+/*Show the red cheques picture in the back ground in the PlayArea*/
+.smallRedCheque {
+  background-image: url('./assets/redcheque-com.png');
+  background-repeat: no-repeat;/*make only one pic instead of several*/
+  background-position: center; /*center align pic*/
+  background-size: contain;/*image will be the size of the container*/
+  height: 15vh;/*set the hight of the picture*/
+  font-size: 2rem;/*set the font-size of the data showing on top of the pic*/
+  margin-top: 1rem;
+  display: flex;/*code to center the dollar amount showing on top of the picture*/
+  justify-content: center;
+  align-items: center;
 }
 
 
+/**********************/
+/* Card Component */
+/**********************/
+/*Set the style of the cards in the PlayGame/PlayArea/CardArea Component*/
+.cardStyle {
+  height: 5rem;/*set height of the cards*/
+  width: 5rem;/*set width of the cards*/
+  background-color: transparent;/*hide the background color*/
+}
 
