@@ -103,9 +103,7 @@ class App extends Component{
   //method use to add one card to either the player or dealer hand
   dealACard = (stackOfCards) =>{
     let hand = stackOfCards;//get the current array of card objects
-
     let cardNumber = this.randomCard();//get a random card index number
-
     hand.push(cards[cardNumber]);//add the card object from the cards array based on the index number
     this.setState({stackOfCards:hand});//update the current array of cards objects
   }
@@ -144,10 +142,26 @@ class App extends Component{
     this.setState({startPlay:true});
   }
 
+  //  TODO: SKIP FOR NOW
+  loseGameOver21 = (points) =>{
+console.log(points);    
+      if(points > 21){
+        alert("Game Over, You lose");
+      }
+  }
+
   //Add a card to the player deck stack
   playerHit = () =>{
 
     this.dealACard(this.state.playerStack);//deal the player one card
+
+    //update the player's hand total points
+    this.setState({playerDeckTotal: this.getCardPointsTotal(this.state.playerStack)});    
+
+    //  TODO: SKIP FOR NOW
+    //check if player's new total of points is above 21. If so, game is lose
+    //this.loseGameOver21(this.state.playerDeckTotal);
+
   }
 
   //The player use their current points and allow the dealer to take a turn
