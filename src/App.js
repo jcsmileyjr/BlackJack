@@ -81,7 +81,7 @@ class App extends Component{
 
     let dealerCards = [];
     const dealerCard1 = Math.floor(Math.random() * (cards.length -1 )) + 1;
-console.log("dealer: " + dealerCard1 + " player 1: " + playerCard1 + " player 2: " + playerCard2);
+//console.log("dealer: " + dealerCard1 + " player 1: " + playerCard1 + " player 2: " + playerCard2);
     dealerCards.push(cards[dealerCard1]);
     dealerCards.push(cards[0]);
 

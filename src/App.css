@@ -45,15 +45,15 @@
 }
 
 /**********************/
-/* Start Component */
+/* PrimaryButton Component */
 /**********************/
 
 .buttonTextStyle {
-  font-size: 5vh;
+  font-size: 1rem;
   background-color:#F3E40E;
-  margin-top:2vh;
-  margin-bottom: 2vh; 
+  margin-top:1vh;/*add white space*/  
   box-shadow: 1px 2px 5px 2px rgb(58, 70, 60); /*shadow under the button*/
+  width: 4rem;/*control the width of the button*/
 }
 
 /**********************/
@@ -73,6 +73,11 @@
 /*whitespace on CardArea components between the dealer and player card areas*/
 .playArea {
   margin-top: 1rem;
+}
+
+.instructionText {
+  color: black;
+  font-size: .8rem;
 }
 
 /**********************/

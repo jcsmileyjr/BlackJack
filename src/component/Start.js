@@ -1,7 +1,8 @@
 import React from 'react';
-import { Container, Row, Col, Button} from 'react-bootstrap';
+import { Container, Row, Col} from 'react-bootstrap';
 
 import '../App.css';
+import PrimaryButton from './PrimaryButton';
 
 export default function Start(props){
     return(
@@ -21,10 +22,7 @@ export default function Start(props){
                 </Col>
             </Row>
             <Row><Col>Click to increase your bet, in increments of $5, up to your bank amount of ${props.money}</Col></Row>
-            <Row><Col><Button   variant="warning"
-                                className="buttonTextStyle"
-                                onClick={()=>{props.start()}} 
-                                size="lg" >Let's Play</Button></Col></Row>
+            <Row><Col><PrimaryButton size="lg" title="Let's Play" start={props.start} /></Col></Row>
         </Container>
     );
 }
