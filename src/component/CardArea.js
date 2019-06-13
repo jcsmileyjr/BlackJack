@@ -19,7 +19,7 @@ export default function CardArea(props){
     return(
         <Container className={`playArea ${props.bgColor}`}>
             <Row>
-                <Col className="center" xs={10}><h5>Dealer</h5></Col>
+                <Col className="center" xs={10}><h5>{props.tableTitle}</h5></Col>
                 <Col className="center" xs={2}><h5>{props.total}</h5></Col>
             </Row>
             <Row>

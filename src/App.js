@@ -18,7 +18,10 @@ function PlayGame(props){
               lg={{span:6, offset:3}}
               xl={{span:6, offset:3}}>
           <Nav money={props.money} />
-          <PlayArea dealerCards={props.dealerCards} 
+          <PlayArea hit={props.hit}
+                    stand = {props.stand}
+                    doubleDown={props.doubleDown}
+                    dealerCards={props.dealerCards} 
                     playerCards={props.playerCards}
                     playerTotal={props.playerTotal} 
                     dealerTotal={props.dealerTotal} />        
@@ -125,6 +128,18 @@ class App extends Component{
     this.setState({startPlay:true});
   }
 
+  playerHit = () =>{
+    alert("Player Hit");
+  }
+
+  playerStand = () =>{
+    alert("Player Stand");
+  }
+
+  playerDoubleDown = () =>{
+    alert("Player Double Down");
+  }
+
   render(){
     return(
       <Container>
@@ -136,6 +151,9 @@ class App extends Component{
         }
         {this.state.startPlay === true &&
           <PlayGame money={this.state.funds}
+                    hit={this.playerHit}
+                    stand={this.playerStand}
+                    doubleDown={this.playerDoubleDown}
                     dealerTotal = {this.state.dealerDeckTotal}
                     playerTotal = {this.state.playerDeckTotal} 
                     dealerCards={this.state.dealerStack} 

@@ -22,7 +22,7 @@ export default function Start(props){
                 </Col>
             </Row>
             <Row><Col>Click to increase your bet, in increments of $5, up to your bank amount of ${props.money}</Col></Row>
-            <Row><Col><PrimaryButton size="lg" title="Let's Play" start={props.start} /></Col></Row>
+            <Row><Col><PrimaryButton size="lg" title="Let's Play" action={props.start} /></Col></Row>
         </Container>
     );
 }
