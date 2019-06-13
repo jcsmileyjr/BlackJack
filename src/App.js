@@ -83,6 +83,10 @@ class App extends Component{
     playerCards.push(cards[playerCard1]);
     playerCards.push(cards[playerCard2]);
 
+    //set the cards played valued to true
+    cards[playerCard1].played = true;
+    cards[playerCard2].played = true;
+
     let dealerCards = [];
     const dealerCard1 = this.randomCard();
 //console.log("dealer: " + dealerCard1 + " player 1: " + playerCard1 + " player 2: " + playerCard2);
@@ -104,14 +108,24 @@ class App extends Component{
   dealACard = (stackOfCards) =>{
     let hand = stackOfCards;//get the current array of card objects
     let cardNumber = this.randomCard();//get a random card index number
+console.log(cardNumber);    
+
+    //check if card have been played already
+    if(cards[cardNumber].played){
+      cardNumber = this.randomCard();
+      cards[cardNumber].played = true;
+    }
+
     hand.push(cards[cardNumber]);//add the card object from the cards array based on the index number
     this.setState({stackOfCards:hand});//update the current array of cards objects
   }
 
   //Get a sum of all cards worth and update the state
   getCardPointsTotal = (deck)=>{
-    console.table(deck);
+    //console.table(deck);
     let total = 0;
+
+    //loop through each card adding the value to "total". If the value is 11, then add 2 to the "total"
     for(var i=0;i<deck.length;i++){
       if(deck[i].value === 11 && (total + 11) > 21){
         total += 2;
