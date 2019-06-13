@@ -21,6 +21,7 @@ function PlayGame(props){
           <PlayArea hit={props.hit}
                     stand = {props.stand}
                     doubleDown={props.doubleDown}
+                    bet={props.bet}
                     dealerCards={props.dealerCards} 
                     playerCards={props.playerCards}
                     playerTotal={props.playerTotal} 
@@ -154,6 +155,7 @@ class App extends Component{
                     hit={this.playerHit}
                     stand={this.playerStand}
                     doubleDown={this.playerDoubleDown}
+                    bet={this.state.currentBet}
                     dealerTotal = {this.state.dealerDeckTotal}
                     playerTotal = {this.state.playerDeckTotal} 
                     dealerCards={this.state.dealerStack} 

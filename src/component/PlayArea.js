@@ -25,7 +25,11 @@ export default function PlayArea(props){
             <Row>
                 <Col xs={4}><PrimaryButton size="sm" title="Double Down" action={props.doubleDown} /></Col>
                 <Col xs={8}><p className="instructionText">Double your bet, get one card, and the dealer turn starts!</p></Col>
-            </Row>                       
+            </Row>
+            <Row>
+                <Col xs={4} className="smallRedCheque primaryColor">${props.bet}</Col>
+                <Col xs={8}><p className="instructionText centerBetAmountText">Current Bet Amount!</p></Col>
+            </Row>                                   
         </Container>
     );
 }

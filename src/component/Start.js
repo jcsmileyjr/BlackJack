@@ -6,7 +6,7 @@ import PrimaryButton from './PrimaryButton';
 
 export default function Start(props){
     return(
-        <Container className="appBackgroundColor orangeColor center">
+        <Container className="appBackgroundColor primaryColor center">
             <Row><Col><h3>Are you ready to play</h3></Col></Row>
             <Row><Col><h1>Black Jack</h1></Col></Row>
             <Row>
