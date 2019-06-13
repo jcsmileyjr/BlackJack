@@ -73,18 +73,18 @@ class App extends Component{
   dealCards = () =>{
 
     let playerCards = [];
-    const playerCard1 = Math.floor(Math.random() * (cards.length - 1)) + 1;
-    let playerCard2 = Math.floor(Math.random() * (cards.length - 1)) + 1;
+    const playerCard1 = this.randomCard();
+    let playerCard2 = this.randomCard();
 
     if(playerCard2 === playerCard1){
-      playerCard2 = Math.floor(Math.random() * (cards.length -1 )) + 1;
+      playerCard2 = this.randomCard();
     }
 
     playerCards.push(cards[playerCard1]);
     playerCards.push(cards[playerCard2]);
 
     let dealerCards = [];
-    const dealerCard1 = Math.floor(Math.random() * (cards.length -1 )) + 1;
+    const dealerCard1 = this.randomCard();
 //console.log("dealer: " + dealerCard1 + " player 1: " + playerCard1 + " player 2: " + playerCard2);
     dealerCards.push(cards[dealerCard1]);
     dealerCards.push(cards[0]);
@@ -93,6 +93,21 @@ class App extends Component{
                     dealerStack:dealerCards,
                     playerDeckTotal: this.getCardPointsTotal(playerCards),
                     dealerDeckTotal:this.getCardPointsTotal(dealerCards)});
+  }
+
+  //standard method for getting a random index of the cards array
+  randomCard = () =>{
+    return Math.floor(Math.random() * (cards.length -1 )) + 1;
+  }
+
+  //method use to add one card to either the player or dealer hand
+  dealACard = (stackOfCards) =>{
+    let hand = stackOfCards;//get the current array of card objects
+
+    let cardNumber = this.randomCard();//get a random card index number
+
+    hand.push(cards[cardNumber]);//add the card object from the cards array based on the index number
+    this.setState({stackOfCards:hand});//update the current array of cards objects
   }
 
   //Get a sum of all cards worth and update the state
@@ -129,16 +144,21 @@ class App extends Component{
     this.setState({startPlay:true});
   }
 
+  //Add a card to the player deck stack
   playerHit = () =>{
-    alert("Player Hit");
+
+    this.dealACard(this.state.playerStack);//deal the player one card
   }
 
+  //The player use their current points and allow the dealer to take a turn
   playerStand = () =>{
     alert("Player Stand");
   }
 
+  //The player double their bet (or go all in), receive one card, and end their turn.
   playerDoubleDown = () =>{
-    alert("Player Double Down");
+
+    this.dealACard(this.state.playerStack);//deal the player one card    
   }
 
   render(){
