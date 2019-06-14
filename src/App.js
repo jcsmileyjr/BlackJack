@@ -181,17 +181,24 @@ class App extends Component{
     
   }
 
-  //Add a card to the player deck stack
+  //Add a card to the player deck stack if the hand's sum is under or equal to 17
   playerHit = () =>{
 
-    this.dealACard(this.state.playerStack);//deal the player one card
+    //if hand's sum is under or equal to 17 add one card
+    if(this.state.playerDeckTotal <= 17){
+      this.dealACard(this.state.playerStack);//deal the player one card
+    }
 
     //update the player's hand total points
     this.setState({playerDeckTotal: this.getCardPointsTotal(this.state.playerStack)});    
 
-    //  TODO: SKIP FOR NOW
-    //check if player's new total of points is above 21. If so, game is lose
-    //this.loseGameOver21(this.state.playerDeckTotal);
+    //need a up to date total
+    const currentTotal = this.getCardPointsTotal(this.state.playerStack);
+
+    //if hand's sum is greater then 17 then its the dealer turn
+    if(currentTotal > 17){
+      this.dealerHand();//get cards for the dealer
+    }
 
   }
 
