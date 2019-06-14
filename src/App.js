@@ -100,8 +100,7 @@ class App extends Component{
     this.setState({ playerStack: playerCards, 
                     dealerStack:dealerCards,
                     playerDeckTotal: this.getCardPointsTotal(playerCards),
-                    dealerDeckTotal:this.getCardPointsTotal(dealerCards)}); 
-console.table(this.state.dealerStack);                                
+                    dealerDeckTotal:this.getCardPointsTotal(dealerCards)});                                
   }
 
   //standard method for getting a random index of the cards array
@@ -148,9 +147,7 @@ console.table(this.state.dealerStack);
   //then the bet amount start over at 5.
   increaseBet = () =>{
     if(this.state.currentBet >= this.state.funds){
-      this.setState(previousState => ({
-        currentBet: 5,
-      }));      
+      this.setState({currentBet:5});     
     }else {
       this.setState(previousState => ({
         currentBet: previousState.currentBet + 5,
