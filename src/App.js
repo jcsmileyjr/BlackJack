@@ -12,6 +12,7 @@ class App extends Component{
     this.state={
       funds:100,
       startPlay: false,
+      results: false,
       currentBet: 5,
       dealerStack:[],
       playerStack:[],
@@ -80,6 +81,7 @@ class App extends Component{
     hand.push(cards[cardNumber]);//add the card object from the cards array based on the index number
  
     this.setState({stackOfCards:hand});//update the current array of cards objects
+    
   }
 
   //Get a sum of all cards worth and update the state
@@ -187,13 +189,13 @@ class App extends Component{
   render(){
     return(
       <Container>
-        {this.state.startPlay === false &&
+        {this.state.startPlay === false && this.state.results ===false &&
         <StartGame  money={this.state.funds}
                     start={this.startGame}
                     addToBet = {this.increaseBet}
                     bet={this.state.currentBet} />
         }
-        {this.state.startPlay === true &&
+        {this.state.startPlay === true && this.state.results ===false &&
           <PlayGame money={this.state.funds}
                     hit={this.playerHit}
                     stand={this.playerStand}
