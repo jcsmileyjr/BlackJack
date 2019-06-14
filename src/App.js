@@ -17,11 +17,10 @@ function PlayGame(props){
               md={{span:8, offset:2}}
               lg={{span:6, offset:3}}
               xl={{span:6, offset:3}}>
-          <Nav money={props.money} />
+          <Nav money={props.money} bet={props.bet} />
           <PlayArea hit={props.hit}
                     stand = {props.stand}
-                    doubleDown={props.doubleDown}
-                    bet={props.bet}
+                    doubleDown={props.doubleDown}                    
                     dealerCards={props.dealerCards} 
                     playerCards={props.playerCards}
                     playerTotal={props.playerTotal} 
@@ -42,7 +41,7 @@ function StartGame(props){
               md={{span:8, offset:2}}
               lg={{span:6, offset:3}}
               xl={{span:6, offset:3}}>
-          <Nav money={props.money} />
+          <Nav money={props.money} bet={props.bet} />
           <Start start={props.start} money={props.money} bet={props.bet} addToBet={props.addToBet} />        
         </Col>
       </Row>
