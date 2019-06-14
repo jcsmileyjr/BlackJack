@@ -101,7 +101,8 @@ class App extends Component{
     this.setState({ playerStack: playerCards, 
                     dealerStack:dealerCards,
                     playerDeckTotal: this.getCardPointsTotal(playerCards),
-                    dealerDeckTotal:this.getCardPointsTotal(dealerCards)});             
+                    dealerDeckTotal:this.getCardPointsTotal(dealerCards)}); 
+console.table(this.state.dealerStack);                                
   }
 
   //standard method for getting a random index of the cards array
@@ -118,9 +119,12 @@ class App extends Component{
     if(cards[cardNumber].played){
       cardNumber = this.randomCard();
       cards[cardNumber].played = true;
+    }else{
+      cards[cardNumber].played = true;
     }
 
     hand.push(cards[cardNumber]);//add the card object from the cards array based on the index number
+ 
     this.setState({stackOfCards:hand});//update the current array of cards objects
   }
 
@@ -164,8 +168,8 @@ class App extends Component{
   dealerHand = () =>{
     let hand = this.state.dealerStack;//get the current dealer's hand
     hand.pop();//uncover the card by removing the "cover" card 
-
-    let currentTotal = this.startGame.dealerDeckTotal;//get current sum of dealer's hand
+    
+    let currentTotal = this.state.dealerDeckTotal;//get current sum of dealer's hand
 
     //Add card to the dealer hand as long as the sum of the dealer's and is less then or equal to 17
     do{
@@ -176,8 +180,9 @@ class App extends Component{
       this.setState({dealerDeckTotal: this.getCardPointsTotal(this.state.dealerStack)});  
 
       //update currentTotal
-      currentTotal = this.startGame.dealerDeckTotal;
-    }while(currentTotal <= 17)
+      currentTotal = this.getCardPointsTotal(this.state.dealerStack);
+
+    }while(currentTotal < 17)
     
   }
 
@@ -192,7 +197,7 @@ class App extends Component{
     //update the player's hand total points
     this.setState({playerDeckTotal: this.getCardPointsTotal(this.state.playerStack)});    
 
-    //need a up to date total
+    //Bug Fixed: need a up to date total
     const currentTotal = this.getCardPointsTotal(this.state.playerStack);
 
     //if hand's sum is greater then 17 then its the dealer turn
