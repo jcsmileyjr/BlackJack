@@ -224,6 +224,8 @@ class App extends Component{
         currentBet: previousState.currentBet * 2,
       }));
     }
+
+    this.dealerHand();//Deal the dealer a hand
   }
 
   render(){
