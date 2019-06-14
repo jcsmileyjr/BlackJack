@@ -66,13 +66,13 @@ class App extends Component{
   }
 
   componentDidMount() {
-    this.dealCards();//Testing purposes
+    this.dealCards();//deal two cards to player and dealer at the begining of the game
   }
 
   //At the beginning of the game the player is dealt 2 face up cards and the dealer one face up/one face down
   dealCards = () =>{
 
-    let playerCards = [];
+    let playerCards = [];//array to create player's hand of random cards and assigned to playerStack state
     const playerCard1 = this.randomCard();//get a random card
     let playerCard2 = this.randomCard();//get a random cad
 
@@ -81,7 +81,7 @@ class App extends Component{
       playerCard2 = this.randomCard();
     }
 
-    //create a temp array that will be used as the player hand
+    //create a temp array that will be used as the player hand and add each card
     playerCards.push(cards[playerCard1]);
     playerCards.push(cards[playerCard2]);
 
@@ -91,8 +91,8 @@ class App extends Component{
 
     let dealerCards = [];
     const dealerCard1 = this.randomCard();//get a random card for the dealer
-//console.log("dealer: " + dealerCard1 + " player 1: " + playerCard1 + " player 2: " + playerCard2);
-    dealerCards.push(cards[dealerCard1]);
+
+    dealerCards.push(cards[dealerCard1]);//add the first card to the dealer hand
     dealerCards.push(cards[0]);//add the cover card to the dealer hand
 
     cards[dealerCard1].played = true;
@@ -113,7 +113,6 @@ class App extends Component{
   dealACard = (stackOfCards) =>{
     let hand = stackOfCards;//get the current array of card objects
     let cardNumber = this.randomCard();//get a random card index number
-//console.log(cardNumber);    
 
     //check if card have been played already
     if(cards[cardNumber].played){
@@ -123,7 +122,6 @@ class App extends Component{
 
     hand.push(cards[cardNumber]);//add the card object from the cards array based on the index number
     this.setState({stackOfCards:hand});//update the current array of cards objects
-console.table(this.state.dealerStack);    
   }
 
   //Get a sum of all cards worth and update the state
@@ -162,19 +160,25 @@ console.table(this.state.dealerStack);
     this.setState({startPlay:true});
   }
 
-  //  TODO: SKIP FOR NOW
-  loseGameOver21 = (points) =>{
-console.log(points);    
-      if(points > 21){
-        alert("Game Over, You lose");
-      }
-  }
-
   //deals cards to the dealer till get a soft 17 or one card over
   dealerHand = () =>{
-    let hand = this.state.dealerStack;
-    hand.pop();
-    this.dealACard(this.state.dealerStack);//deal the player one card
+    let hand = this.state.dealerStack;//get the current dealer's hand
+    hand.pop();//uncover the card by removing the "cover" card 
+
+    let currentTotal = this.startGame.dealerDeckTotal;//get current sum of dealer's hand
+
+    //Add card to the dealer hand as long as the sum of the dealer's and is less then or equal to 17
+    do{
+      
+      this.dealACard(this.state.dealerStack);//deal the dealer one card
+
+      //update the dealer's hand total points
+      this.setState({dealerDeckTotal: this.getCardPointsTotal(this.state.dealerStack)});  
+
+      //update currentTotal
+      currentTotal = this.startGame.dealerDeckTotal;
+    }while(currentTotal <= 17)
+    
   }
 
   //Add a card to the player deck stack
@@ -193,10 +197,7 @@ console.log(points);
 
   //The player use their current points and allow the dealer to take a turn
   playerStand = () =>{
-    this.dealerHand();
-
-    //update the dealer's hand total points
-    this.setState({dealerDeckTotal: this.getCardPointsTotal(this.state.dealerStack)});    
+    this.dealerHand();   
   }
 
   //The player double their bet (or go all in), receive one card, and end their turn.
