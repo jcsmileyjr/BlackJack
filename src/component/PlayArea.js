@@ -27,8 +27,8 @@ export default function PlayArea(props){
                 <Col xs={8}><p className="instructionText">Double your bet, get one card, and the dealer turn starts!</p></Col>
             </Row>
             <Row>
-                <Col xs={4} className="smallRedCheque primaryColor">${props.bet}</Col>
-                <Col xs={8}><p className="instructionText centerBetAmountText">Current Bet Amount!</p></Col>
+                <Col xs={6} className="smallRedCheque primaryColor">${props.bet}</Col>
+                <Col xs={6}><p className="instructionText centerBetAmountText">Current Bet Amount!</p></Col>
             </Row>                                   
         </Container>
     );

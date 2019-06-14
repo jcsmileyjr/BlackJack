@@ -19,7 +19,8 @@
 /*Primary background color in app*/
 .appBackgroundColor {
   background-image: radial-gradient(circle,#089108, #089108 ,rgb(4, 68, 4));
-  height: 106vh;
+  /*height: 106vh;*/
+  padding-bottom: 3vh;
 }
 
 /*Show the red cheques picture in the back ground*/
@@ -99,7 +100,7 @@
 .smallRedCheque {
   background-image: url('./assets/redcheque-com.png');
   background-repeat: no-repeat;/*make only one pic instead of several*/
-  background-position: center; /*center align pic*/
+  background-position: top; /*center align pic*/
   background-size: contain;/*image will be the size of the container*/
   height: 15vh;/*set the hight of the picture*/
   font-size: 2rem;/*set the font-size of the data showing on top of the pic*/

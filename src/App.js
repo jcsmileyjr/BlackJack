@@ -73,13 +73,15 @@ class App extends Component{
   dealCards = () =>{
 
     let playerCards = [];
-    const playerCard1 = this.randomCard();
-    let playerCard2 = this.randomCard();
+    const playerCard1 = this.randomCard();//get a random card
+    let playerCard2 = this.randomCard();//get a random cad
 
+    //check if the both cards are the same, if so get another random card
     if(playerCard2 === playerCard1){
       playerCard2 = this.randomCard();
     }
 
+    //create a temp array that will be used as the player hand
     playerCards.push(cards[playerCard1]);
     playerCards.push(cards[playerCard2]);
 
@@ -88,15 +90,18 @@ class App extends Component{
     cards[playerCard2].played = true;
 
     let dealerCards = [];
-    const dealerCard1 = this.randomCard();
+    const dealerCard1 = this.randomCard();//get a random card for the dealer
 //console.log("dealer: " + dealerCard1 + " player 1: " + playerCard1 + " player 2: " + playerCard2);
     dealerCards.push(cards[dealerCard1]);
-    dealerCards.push(cards[0]);
+    dealerCards.push(cards[0]);//add the cover card to the dealer hand
+
+    cards[dealerCard1].played = true;
+    cards[0].played = true;
 
     this.setState({ playerStack: playerCards, 
                     dealerStack:dealerCards,
                     playerDeckTotal: this.getCardPointsTotal(playerCards),
-                    dealerDeckTotal:this.getCardPointsTotal(dealerCards)});
+                    dealerDeckTotal:this.getCardPointsTotal(dealerCards)});             
   }
 
   //standard method for getting a random index of the cards array
@@ -108,7 +113,7 @@ class App extends Component{
   dealACard = (stackOfCards) =>{
     let hand = stackOfCards;//get the current array of card objects
     let cardNumber = this.randomCard();//get a random card index number
-console.log(cardNumber);    
+//console.log(cardNumber);    
 
     //check if card have been played already
     if(cards[cardNumber].played){
@@ -118,6 +123,7 @@ console.log(cardNumber);
 
     hand.push(cards[cardNumber]);//add the card object from the cards array based on the index number
     this.setState({stackOfCards:hand});//update the current array of cards objects
+console.table(this.state.dealerStack);    
   }
 
   //Get a sum of all cards worth and update the state
@@ -164,6 +170,13 @@ console.log(points);
       }
   }
 
+  //deals cards to the dealer till get a soft 17 or one card over
+  dealerHand = () =>{
+    let hand = this.state.dealerStack;
+    hand.pop();
+    this.dealACard(this.state.dealerStack);//deal the player one card
+  }
+
   //Add a card to the player deck stack
   playerHit = () =>{
 
@@ -180,7 +193,10 @@ console.log(points);
 
   //The player use their current points and allow the dealer to take a turn
   playerStand = () =>{
-    alert("Player Stand");
+    this.dealerHand();
+
+    //update the dealer's hand total points
+    this.setState({dealerDeckTotal: this.getCardPointsTotal(this.state.dealerStack)});    
   }
 
   //The player double their bet (or go all in), receive one card, and end their turn.
