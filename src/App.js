@@ -1,54 +1,10 @@
 import React, { Component } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 
 import './App.css';
 import {cards} from './component/cardDeck';
-import Nav from './component/Nav';
-import Start from './component/Start';
-import PlayArea from './component/PlayArea';
-
-
-function PlayGame(props){
-  return(
-    <Container>
-      <Row>
-        <Col  xs={{span:12}} 
-              sm={{span:10, offset:1}}
-              md={{span:8, offset:2}}
-              lg={{span:6, offset:3}}
-              xl={{span:6, offset:3}}>
-          <Nav money={props.money} bet={props.bet} />
-          <PlayArea hit={props.hit}
-                    stand = {props.stand}
-                    doubleDown={props.doubleDown}                    
-                    dealerCards={props.dealerCards} 
-                    playerCards={props.playerCards}
-                    playerTotal={props.playerTotal} 
-                    dealerTotal={props.dealerTotal} />        
-        </Col>
-      </Row>
-
-    </Container>
-  );
-}
-
-function StartGame(props){
-  return(
-    <Container>
-      <Row>
-        <Col  xs={{span:12}} 
-              sm={{span:10, offset:1}}
-              md={{span:8, offset:2}}
-              lg={{span:6, offset:3}}
-              xl={{span:6, offset:3}}>
-          <Nav money={props.money} bet={props.bet} />
-          <Start start={props.start} money={props.money} bet={props.bet} addToBet={props.addToBet} />        
-        </Col>
-      </Row>
-
-    </Container>
-  );
-}
+import PlayGame from './component/PlayGame';
+import StartGame from './component/StartGame';
 
 class App extends Component{
   constructor(props){
