@@ -112,7 +112,7 @@
   background-repeat: no-repeat;/*make only one pic instead of several*/
   background-position: top; /*center align pic*/
   background-size: contain;/*image will be the size of the container*/
-  height: 15vh;/*set the hight of the picture*/
+  height: 25vh;/*set the hight of the picture*/
   font-size: 2rem;/*set the font-size of the data showing on top of the pic*/
   margin-top: 1rem;
   display: flex;/*code to center the dollar amount showing on top of the picture*/

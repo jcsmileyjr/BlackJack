@@ -23,7 +23,7 @@ export default function PlayArea(props){
 
             <Row>
                 <Col xs={4}><PrimaryButton size="smallButtonSize" title="Stand" action={props.stand} /></Col>
-                <Col xs={8}><p className="instructionText">Your turn ends. The dealer starts drawing cards!</p></Col>
+                <Col xs={8}><p className="instructionText">Click to end your turn. The dealer starts drawing cards!</p></Col>
             </Row>
 
             {props.playerTotal < 17 &&

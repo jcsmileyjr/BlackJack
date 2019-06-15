@@ -8,13 +8,13 @@ export default function Results(props){
     return(
         <Container className="appBackgroundColor primaryColor center whiteSpaceUnderNav">
             {props.gameResults === "win" &&
-            <Row className="whiteSpaceBetweenElements"><Col><h1>YOU WON!!!</h1></Col></Row>
+                <Row className="whiteSpaceBetweenElements"><Col><h1>YOU WON!!!</h1></Col></Row>
             }
             {props.gameResults === "lose" &&
-            <Row className="whiteSpaceBetweenElements"><Col><h1>You LOSE!!!</h1></Col></Row>
+                <Row className="whiteSpaceBetweenElements"><Col><h1>You LOSE!!!</h1></Col></Row>
             }
             {props.gameResults === "push" &&
-            <Row className="whiteSpaceBetweenElements"><Col><h1>It was a TIE</h1></Col></Row>
+                <Row className="whiteSpaceBetweenElements"><Col><h1>It was a TIE</h1></Col></Row>
             }  
             <Row className="whiteSpaceBetweenElements">
                 <Col className="center"><h5>Dealer</h5></Col>
