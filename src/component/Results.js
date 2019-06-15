@@ -14,7 +14,15 @@ export default function Results(props){
             }
             {props.gameResults === "push" &&
             <Row><Col><h1>It was a Tie</h1></Col></Row>
-            }                        
+            }  
+            <Row>
+                <Col className="center">Dealer</Col>
+                <Col className="center">{props.dealerTotal}</Col>
+            </Row>
+            <Row>
+                <Col className="center">Player</Col>
+                <Col className="center">{props.playerTotal}</Col>
+            </Row>                                  
             
         </Container>
     );
