@@ -5,6 +5,7 @@ import './App.css';
 import {cards} from './component/cardDeck';
 import PlayGame from './component/PlayGame';
 import StartGame from './component/StartGame';
+import EndGame from './component/EndGame';
 
 class App extends Component{
   constructor(props){
@@ -132,6 +133,11 @@ class App extends Component{
     this.setState({startPlay:true});
   }
 
+  //Show the Results component
+  endGame = () =>{
+    this.setState({results:true, startPlay:false});
+  }
+
   //deals cards to the dealer till get a soft 17 or one card over
   dealerHand = () =>{
     let hand = this.state.dealerStack;//get the current dealer's hand
@@ -152,6 +158,7 @@ class App extends Component{
 
     }while(currentTotal < 17)
     
+    setTimeout(()=>{this.endGame()}, 3000);
   }
 
   //Add a card to the player deck stack if the hand's sum is under or equal to 17
@@ -219,6 +226,9 @@ class App extends Component{
                     playerTotal = {this.state.playerDeckTotal} 
                     dealerCards={this.state.dealerStack} 
                     playerCards={this.state.playerStack} />
+        }
+        {this.state.results === true &&
+          <EndGame />
         }
       </Container>
     );
