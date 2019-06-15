@@ -21,13 +21,13 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "homepage": "https://jcsmileyjr.github.io/BlackJack/",
   "browserslist": {
     "production": [
       ">0.2%",
       "not dead",
       "not op_mini all"
     ],
-    "homepage": "https://jcsmileyjr.github.io/BlackJack",
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
