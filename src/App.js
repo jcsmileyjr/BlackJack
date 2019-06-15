@@ -5,6 +5,7 @@ import './App.css';
 import {cards} from './component/cardDeck';
 import PlayGame from './component/PlayGame';
 import StartGame from './component/StartGame';
+import EndGame from './component/EndGame';
 
 class App extends Component{
   constructor(props){
@@ -13,6 +14,7 @@ class App extends Component{
       funds:100,
       startPlay: false,
       results: false,
+      winLose: "lose", 
       currentBet: 5,
       dealerStack:[],
       playerStack:[],
@@ -22,7 +24,7 @@ class App extends Component{
   }
 
   componentDidMount() {
-    this.dealCards();//deal two cards to player and dealer at the begining of the game
+    //this.dealCards();//deal two cards to player and dealer at the begining of the game
   }
 
   //At the beginning of the game the player is dealt 2 face up cards and the dealer one face up/one face down
@@ -86,17 +88,31 @@ class App extends Component{
 
   //Get a sum of all cards worth and update the state
   getCardPointsTotal = (deck)=>{
-    //console.table(deck);
+    
     let total = 0;
+    let foundAces = 0;
 
-    //loop through each card adding the value to "total". If the value is 11, then add 2 to the "total"
+    //loop through each card adding the value to "total". Keep track of all values that is 11 to add up later
     for(var i=0;i<deck.length;i++){
-      if(deck[i].value === 11 && (total + 11) > 21){
-        total += 2;
-        break;
+      if(deck[i].value === 11){//if the value is a 11, track it but don't add
+        foundAces ++; 
+      }else {
+        total += deck[i].value;//add the value to total
       }
-      total += deck[i].value;
+      
     }
+
+    if(foundAces > 0){//if the number of Aces is more then 0, 
+      for(var j=0;j<foundAces;j++){//loop through the number of Aces
+               
+        if((total + 11) > 21){//if the total of all cards including the Ace is over 21, add the Ace as a 2
+          total += 2;
+        }else {
+          total += 11;//if the total of all cards including the Ace is under 21, add the Ace as a 11
+        }       
+      }
+    }
+
 
     return total;
   }
@@ -115,7 +131,34 @@ class App extends Component{
 
   //called from the start button on the Start Game component to start the game
   startGame = () =>{
-    this.setState({startPlay:true});
+    this.setState({startPlay:true, results:false});
+    this.dealCards();
+  }
+
+  //Show the Results component
+  endGame = () =>{
+    let gameResults = "lose";
+
+    //if the player has less then 21 but more then the dealer or the dealer has bust but the player has not then the player win
+    if((this.state.playerDeckTotal <= 21 && this.state.playerDeckTotal > this.state.dealerDeckTotal) || (this.state.dealerDeckTotal > 21 && this.state.playerDeckTotal <= 21)){
+      gameResults = "win";//return that the player won
+
+      //player win the money bet
+      this.setState(previousState => ({
+        funds: previousState.funds + this.state.currentBet,
+      }));
+    }else if(this.state.playerDeckTotal === this.state.dealerDeckTotal){
+      gameResults = "push";//return that the game was tie
+    }else{
+      gameResults = "lose";//return that the player lost
+
+      //player lose the money bet
+      this.setState(previousState => ({
+        funds: previousState.funds - this.state.currentBet,
+      }));      
+    }  
+    //switch to the EndGame component with results of the game
+    this.setState({results:true, startPlay:false, winLose:gameResults});
   }
 
   //deals cards to the dealer till get a soft 17 or one card over
@@ -138,6 +181,7 @@ class App extends Component{
 
     }while(currentTotal < 17)
     
+    setTimeout(()=>{this.endGame()}, 2000);
   }
 
   //Add a card to the player deck stack if the hand's sum is under or equal to 17
@@ -205,6 +249,15 @@ class App extends Component{
                     playerTotal = {this.state.playerDeckTotal} 
                     dealerCards={this.state.dealerStack} 
                     playerCards={this.state.playerStack} />
+        }
+        {this.state.results === true &&
+          <EndGame  gameResults = {this.state.winLose}
+                    money={this.state.funds}
+                    start={this.startGame}          
+                    bet={this.state.currentBet}
+                    addToBet = {this.increaseBet}
+                    dealerTotal = {this.state.dealerDeckTotal}
+                    playerTotal = {this.state.playerDeckTotal} />
         }
       </Container>
     );
