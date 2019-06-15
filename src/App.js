@@ -6,6 +6,7 @@ import {cards} from './component/cardDeck';
 import PlayGame from './component/PlayGame';
 import StartGame from './component/StartGame';
 import EndGame from './component/EndGame';
+import { lookupService } from 'dns';
 
 class App extends Component{
   constructor(props){
@@ -14,6 +15,7 @@ class App extends Component{
       funds:100,
       startPlay: false,
       results: false,
+      winLose: "lose", 
       currentBet: 5,
       dealerStack:[],
       playerStack:[],
@@ -135,7 +137,17 @@ class App extends Component{
 
   //Show the Results component
   endGame = () =>{
-    this.setState({results:true, startPlay:false});
+    let gameResults = "lose";
+
+    if(this.state.playerDeckTotal <= 21 && this.state.playerDeckTotal > this.state.dealerDeckTotal){
+      gameResults = "win";
+    }else if(this.state.playerDeckTotal === this.state.dealerDeckTotal){
+      gameResults = "push";
+    }else{
+      gameResults = "lose";
+    }  
+    //switch to the EndGame component with results of the game
+    this.setState({results:true, startPlay:false, winLose:gameResults});
   }
 
   //deals cards to the dealer till get a soft 17 or one card over
@@ -228,7 +240,9 @@ class App extends Component{
                     playerCards={this.state.playerStack} />
         }
         {this.state.results === true &&
-          <EndGame />
+          <EndGame  gameResults = {this.state.winLose}
+                    dealerTotal = {this.state.dealerDeckTotal}
+                    playerTotal = {this.state.playerDeckTotal} />
         }
       </Container>
     );

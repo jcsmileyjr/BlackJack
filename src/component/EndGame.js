@@ -3,8 +3,9 @@ import { Container, Row, Col} from 'react-bootstrap';
 
 import '../App.css';
 import Nav from './Nav';
+import Results from './Results';
 
-export default function StartGame(props){
+export default function EndGame(props){
     return(
       <Container>
         <Row>
@@ -14,7 +15,9 @@ export default function StartGame(props){
                 lg={{span:6, offset:3}}
                 xl={{span:6, offset:3}}>
             <Nav money={props.money} bet={props.bet} />
-            <h1>End Game</h1>
+            <Results playerTotal={props.playerTotal}
+                     gameResults = {props.gameResults} 
+                     dealerTotal={props.dealerTotal} />
           </Col>
         </Row>
   
