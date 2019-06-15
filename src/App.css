@@ -19,7 +19,11 @@
 /*Primary background color in app*/
 .appBackgroundColor {
   background-image: radial-gradient(circle,#089108, #089108 ,rgb(4, 68, 4));
-  min-height: 100vh;
+  min-height: 100vh;  
+}
+
+.whiteSpaceUnderNav {
+  padding-top: 3vh;
 }
 
 /*Show the red cheques picture in the back ground*/
@@ -54,6 +58,15 @@
   background-color:#F3E40E;
   margin-top:1vh;/*add white space*/  
   box-shadow: 1px 2px 5px 2px rgb(58, 70, 60); /*shadow under the button*/
+}
+
+/*Use on the Start and EndGame primary button components*/
+.largeButtonSize {
+  width: 10rem;/*control the width of the button*/
+}
+
+/*Used on the  PlayArea primary button components*/
+.smallButtonSize {
   width: 4rem;/*control the width of the button*/
 }
 
@@ -99,7 +112,7 @@
   background-repeat: no-repeat;/*make only one pic instead of several*/
   background-position: top; /*center align pic*/
   background-size: contain;/*image will be the size of the container*/
-  height: 15vh;/*set the hight of the picture*/
+  height: 25vh;/*set the hight of the picture*/
   font-size: 2rem;/*set the font-size of the data showing on top of the pic*/
   margin-top: 1rem;
   display: flex;/*code to center the dollar amount showing on top of the picture*/

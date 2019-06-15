@@ -7,9 +7,8 @@ export default function PrimaryButton(props){
     return(
         <Container>
             <Button     variant="warning"
-                        className="buttonTextStyle"
-                        onClick={()=>{props.action()}} 
-                        size={props.size} >
+                        className={`buttonTextStyle ${props.size}`}
+                        onClick={()=>{props.action()}} >
                 {props.title}
             </Button>
         </Container>
