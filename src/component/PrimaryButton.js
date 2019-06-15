@@ -5,7 +5,7 @@ import '../App.css';
 
 export default function PrimaryButton(props){
     return(
-        <Container className="center">
+        <Container>
             <Button     variant="warning"
                         className={`buttonTextStyle ${props.size}`}
                         onClick={()=>{props.action()}} >

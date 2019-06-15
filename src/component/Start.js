@@ -6,7 +6,7 @@ import PrimaryButton from './PrimaryButton';
 
 export default function Start(props){
     return(
-        <Container className="appBackgroundColor primaryColor center">
+        <Container className="appBackgroundColor primaryColor center whiteSpaceUnderNav">
             <Row><Col><h3>Are you ready to play</h3></Col></Row>
             <Row><Col><h1>Black Jack</h1></Col></Row>
             <Row>
@@ -21,7 +21,7 @@ export default function Start(props){
                             ${props.bet}
                 </Col>
             </Row>
-            <Row><Col>Click to increase your bet, in increments of $5, up to your bank amount of ${props.money}</Col></Row>
+            <Row><Col>Click the chip to increase your bet, in increments of $5, up to your bank amount of ${props.money}</Col></Row>
             <Row><Col><PrimaryButton size="largeButtonSize" title="Let's Play" action={props.start} /></Col></Row>
         </Container>
     );

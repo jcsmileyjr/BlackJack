@@ -19,7 +19,11 @@
 /*Primary background color in app*/
 .appBackgroundColor {
   background-image: radial-gradient(circle,#089108, #089108 ,rgb(4, 68, 4));
-  min-height: 100vh;
+  min-height: 100vh;  
+}
+
+.whiteSpaceUnderNav {
+  padding-top: 3vh;
 }
 
 /*Show the red cheques picture in the back ground*/
