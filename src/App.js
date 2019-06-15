@@ -86,17 +86,31 @@ class App extends Component{
 
   //Get a sum of all cards worth and update the state
   getCardPointsTotal = (deck)=>{
-    //console.table(deck);
+    
     let total = 0;
+    let foundAces = 0;
 
-    //loop through each card adding the value to "total". If the value is 11, then add 2 to the "total"
+    //loop through each card adding the value to "total". Keep track of all values that is 11 to add up later
     for(var i=0;i<deck.length;i++){
-      if(deck[i].value === 11 && (total + 11) > 21){
-        total += 2;
-        break;
+      if(deck[i].value === 11){//if the value is a 11, track it but don't add
+        foundAces ++; 
+      }else {
+        total += deck[i].value;//add the value to total
       }
-      total += deck[i].value;
+      
     }
+
+    if(foundAces > 0){//if the number of Aces is more then 0, 
+      for(var j=0;j<foundAces;j++){//loop through the number of Aces
+               
+        if((total + 11) > 21){//if the total of all cards including the Ace is over 21, add the Ace as a 2
+          total += 2;
+        }else {
+          total += 11;//if the total of all cards including the Ace is under 21, add the Ace as a 11
+        }       
+      }
+    }
+
 
     return total;
   }
