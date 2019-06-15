@@ -139,12 +139,23 @@ class App extends Component{
   endGame = () =>{
     let gameResults = "lose";
 
+    //if the player has less then 21 but more then the dealer or the dealer has bust but the player has not then the player win
     if((this.state.playerDeckTotal <= 21 && this.state.playerDeckTotal > this.state.dealerDeckTotal) || (this.state.dealerDeckTotal > 21 && this.state.playerDeckTotal <= 21)){
-      gameResults = "win";
+      gameResults = "win";//return that the player won
+
+      //player win the money bet
+      this.setState(previousState => ({
+        funds: previousState.funds + this.state.currentBet,
+      }));
     }else if(this.state.playerDeckTotal === this.state.dealerDeckTotal){
-      gameResults = "push";
+      gameResults = "push";//return that the game was tie
     }else{
-      gameResults = "lose";
+      gameResults = "lose";//return that the player lost
+
+      //player lose the money bet
+      this.setState(previousState => ({
+        funds: previousState.funds - this.state.currentBet,
+      }));      
     }  
     //switch to the EndGame component with results of the game
     this.setState({results:true, startPlay:false, winLose:gameResults});
