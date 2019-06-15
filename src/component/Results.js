@@ -39,7 +39,7 @@ export default function Results(props){
             <Row className="center whiteSpaceBetweenElements">
                 <Col xs={12} className="instructionText">Click to increase by increments of $5 up to your funds limit</Col>
             </Row>   
-            <Row className="whiteSpaceBetweenElements"><Col><PrimaryButton size="lg" title="Let's Play" action={props.start} /></Col></Row>       
+            <Row className="whiteSpaceBetweenElements"><Col><PrimaryButton size="largeButtonSize" title="Let's Play" action={props.start} /></Col></Row>       
                                     
             
         </Container>
