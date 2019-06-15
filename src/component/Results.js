@@ -17,12 +17,12 @@ export default function Results(props){
             <Row className="whiteSpaceBetweenElements"><Col><h1>It was a TIE</h1></Col></Row>
             }  
             <Row className="whiteSpaceBetweenElements">
-                <Col className="center">Dealer</Col>
-                <Col className="center">{props.dealerTotal}</Col>
+                <Col className="center"><h5>Dealer</h5></Col>
+                <Col className="center"><h5>{props.dealerTotal}</h5></Col>
             </Row>
             <Row className="whiteSpaceBetweenElements">
-                <Col className="center">Player</Col>
-                <Col className="center">{props.playerTotal}</Col>
+                <Col className="center"><h5>Player</h5></Col>
+                <Col className="center"><h5>{props.playerTotal}</h5></Col>
             </Row>            
             <Row className="whiteSpaceBetweenElements">
                 <Col    className="smallRedCheque primaryColor" 
