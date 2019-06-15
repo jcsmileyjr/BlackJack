@@ -139,7 +139,7 @@ class App extends Component{
   endGame = () =>{
     let gameResults = "lose";
 
-    if(this.state.playerDeckTotal <= 21 && this.state.playerDeckTotal > this.state.dealerDeckTotal){
+    if((this.state.playerDeckTotal <= 21 && this.state.playerDeckTotal > this.state.dealerDeckTotal) || (this.state.dealerDeckTotal > 21 && this.state.playerDeckTotal <= 21)){
       gameResults = "win";
     }else if(this.state.playerDeckTotal === this.state.dealerDeckTotal){
       gameResults = "push";
@@ -170,7 +170,7 @@ class App extends Component{
 
     }while(currentTotal < 17)
     
-    setTimeout(()=>{this.endGame()}, 3000);
+    setTimeout(()=>{this.endGame()}, 2000);
   }
 
   //Add a card to the player deck stack if the hand's sum is under or equal to 17
@@ -241,6 +241,7 @@ class App extends Component{
         }
         {this.state.results === true &&
           <EndGame  gameResults = {this.state.winLose}
+                    bet={this.state.currentBet}
                     dealerTotal = {this.state.dealerDeckTotal}
                     playerTotal = {this.state.playerDeckTotal} />
         }

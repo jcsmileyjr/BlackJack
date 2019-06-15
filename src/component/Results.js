@@ -22,7 +22,12 @@ export default function Results(props){
             <Row>
                 <Col className="center">Player</Col>
                 <Col className="center">{props.playerTotal}</Col>
-            </Row>                                  
+            </Row>
+            <Row className="center">
+                <Col xs={12} className="smallRedCheque primaryColor">${props.bet}</Col>
+                <Col xs={12} className="instructionText">Click to increase by increments of $5 up to your funds limit</Col>
+            </Row>          
+                                    
             
         </Container>
     );

@@ -16,7 +16,8 @@ export default function EndGame(props){
                 xl={{span:6, offset:3}}>
             <Nav money={props.money} bet={props.bet} />
             <Results playerTotal={props.playerTotal}
-                     gameResults = {props.gameResults} 
+                     gameResults = {props.gameResults}
+                     bet={props.bet} 
                      dealerTotal={props.dealerTotal} />
           </Col>
         </Row>

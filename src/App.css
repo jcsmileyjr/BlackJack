@@ -90,13 +90,11 @@
   font-size: .8rem;
 }
 
-.centerBetAmountText {
-  display: flex;/*code to center the dollar amount showing on top of the picture*/
-  align-items: center;/*Center the code vertically*/
-  height: 15vh;/*set the height of the container to a certian size*/  
-}
+/**********************/
+/* Results Component */
+/**********************/
 
-/*Show the red cheques picture in the back ground in the PlayArea*/
+/*Show the red cheques picture in the back ground in the EndGame's Results page*/
 .smallRedCheque {
   background-image: url('./assets/redcheque-com.png');
   background-repeat: no-repeat;/*make only one pic instead of several*/
@@ -108,6 +106,7 @@
   display: flex;/*code to center the dollar amount showing on top of the picture*/
   justify-content: center;
   align-items: center;
+  margin-bottom: 1vh;/*add white space between image and instructions*/
 }
 
 
