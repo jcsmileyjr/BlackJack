@@ -242,6 +242,7 @@ class App extends Component{
         {this.state.results === true &&
           <EndGame  gameResults = {this.state.winLose}
                     bet={this.state.currentBet}
+                    addToBet = {this.increaseBet}
                     dealerTotal = {this.state.dealerDeckTotal}
                     playerTotal = {this.state.playerDeckTotal} />
         }

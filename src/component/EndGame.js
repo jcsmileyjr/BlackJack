@@ -17,6 +17,7 @@ export default function EndGame(props){
             <Nav money={props.money} bet={props.bet} />
             <Results playerTotal={props.playerTotal}
                      gameResults = {props.gameResults}
+                     addToBet={props.addToBet}
                      bet={props.bet} 
                      dealerTotal={props.dealerTotal} />
           </Col>

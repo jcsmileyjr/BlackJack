@@ -22,9 +22,20 @@ export default function Results(props){
             <Row>
                 <Col className="center">Player</Col>
                 <Col className="center">{props.playerTotal}</Col>
+            </Row>            
+            <Row>
+                <Col    className="smallRedCheque primaryColor" 
+                        onClick={() => {props.addToBet()}} 
+                        xs={{span:9, offset:1}} 
+                        sm={{span:8, offset:2}}
+                        md={{span:6, offset:3}}
+                        lg={{span:6, offset:3}}
+                        xl={{span:6, offset:3}}
+                         >
+                            ${props.bet}
+                </Col>
             </Row>
             <Row className="center">
-                <Col xs={12} className="smallRedCheque primaryColor">${props.bet}</Col>
                 <Col xs={12} className="instructionText">Click to increase by increments of $5 up to your funds limit</Col>
             </Row>          
                                     
