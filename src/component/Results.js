@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Row, Col} from 'react-bootstrap';
 
 import '../App.css';
+import PrimaryButton from './PrimaryButton';
 
 export default function Results(props){
     return(
@@ -37,7 +38,8 @@ export default function Results(props){
             </Row>
             <Row className="center">
                 <Col xs={12} className="instructionText">Click to increase by increments of $5 up to your funds limit</Col>
-            </Row>          
+            </Row>   
+            <Row><Col><PrimaryButton size="lg" title="Let's Play" action={props.start} /></Col></Row>       
                                     
             
         </Container>

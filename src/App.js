@@ -6,7 +6,6 @@ import {cards} from './component/cardDeck';
 import PlayGame from './component/PlayGame';
 import StartGame from './component/StartGame';
 import EndGame from './component/EndGame';
-import { lookupService } from 'dns';
 
 class App extends Component{
   constructor(props){
@@ -25,7 +24,7 @@ class App extends Component{
   }
 
   componentDidMount() {
-    this.dealCards();//deal two cards to player and dealer at the begining of the game
+    //this.dealCards();//deal two cards to player and dealer at the begining of the game
   }
 
   //At the beginning of the game the player is dealt 2 face up cards and the dealer one face up/one face down
@@ -132,7 +131,8 @@ class App extends Component{
 
   //called from the start button on the Start Game component to start the game
   startGame = () =>{
-    this.setState({startPlay:true});
+    this.setState({startPlay:true, results:false});
+    this.dealCards();
   }
 
   //Show the Results component
@@ -241,6 +241,8 @@ class App extends Component{
         }
         {this.state.results === true &&
           <EndGame  gameResults = {this.state.winLose}
+                    money={this.state.funds}
+                    start={this.startGame}          
                     bet={this.state.currentBet}
                     addToBet = {this.increaseBet}
                     dealerTotal = {this.state.dealerDeckTotal}
