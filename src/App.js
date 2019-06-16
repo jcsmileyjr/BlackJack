@@ -20,11 +20,8 @@ class App extends Component{
       playerStack:[],
       dealerDeckTotal:0,
       playerDeckTotal:0,
+      pulseAnimation:"",
     }
-  }
-
-  componentDidMount() {
-    //this.dealCards();//deal two cards to player and dealer at the begining of the game
   }
 
   //At the beginning of the game the player is dealt 2 face up cards and the dealer one face up/one face down
@@ -230,12 +227,21 @@ class App extends Component{
     this.dealerHand();//Deal the dealer a hand
   }
 
+  //Set the animation for the red cheque on the start and end component to pulse
+  puslingCheque = () =>{
+    this.setState({pulseAnimation:"pulseWhenClicked"});
+
+    setTimeout(()=>{this.setState({pulseAnimation:""})}, 1000);
+  }
+
   render(){
     return(
       <Container>
         {this.state.startPlay === false && this.state.results ===false &&
         <StartGame  money={this.state.funds}
                     start={this.startGame}
+                    pulse = {this.state.pulseAnimation}
+                    clickToPulse = {this.puslingCheque}
                     addToBet = {this.increaseBet}
                     bet={this.state.currentBet} />
         }
@@ -256,6 +262,8 @@ class App extends Component{
                     start={this.startGame}          
                     bet={this.state.currentBet}
                     addToBet = {this.increaseBet}
+                    pulse = {this.state.pulseAnimation}
+                    clickToPulse = {this.puslingCheque}
                     dealerTotal = {this.state.dealerDeckTotal}
                     playerTotal = {this.state.playerDeckTotal} />
         }

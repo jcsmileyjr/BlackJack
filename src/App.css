@@ -23,7 +23,7 @@
 }
 
 .whiteSpaceUnderNav {
-  padding-top: 3vh;
+  padding-top: 2vh;
 }
 
 /*Show the red cheques picture in the back ground*/
@@ -118,7 +118,17 @@
   display: flex;/*code to center the dollar amount showing on top of the picture*/
   justify-content: center;
   align-items: center;
-  
+}
+
+.pulseWhenClicked {
+  animation: pulse .5s ease-out;
+}
+
+/*when the red cheque is click, it pulse*/
+@keyframes pulse {
+  0%   {transform:scale(1,1)}
+  50%   {transform:scale(1.5,1.5)}
+  100% {transform:scale(1,1)}
 }
 
 .whiteSpaceBetweenElements {
@@ -134,12 +144,11 @@
   height: 5rem;/*set height of the cards*/
   width: 5rem;/*set width of the cards*/
   background-color: transparent;/*hide the background color*/
-  /*transition: all 4s 1s linear;*/
-  animation: example 2s ease-out;
+  animation:dealing 1.5s ease-out;
 }
 
 /*animate the cards from left to ending position while spinning*/
-@keyframes example {
+@keyframes dealing {
   0%   {transform:translate(-350px, 0px) rotate(520deg)}
   100% {transform:translate(0px, 0px)}
 }

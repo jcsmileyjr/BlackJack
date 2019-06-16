@@ -15,7 +15,12 @@ export default function StartGame(props){
                 lg={{span:6, offset:3}}
                 xl={{span:6, offset:3}}>
             <Nav money={props.money} bet={props.bet} />
-            <Start start={props.start} money={props.money} bet={props.bet} addToBet={props.addToBet} />        
+            <Start  start={props.start} 
+                    money={props.money}
+                    pulse = {props.pulse}
+                    clickToPulse = {props.clickToPulse} 
+                    bet={props.bet} 
+                    addToBet={props.addToBet} />        
           </Col>
         </Row>
   

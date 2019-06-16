@@ -25,8 +25,8 @@ export default function Results(props){
                 <Col className="center"><h5>{props.playerTotal}</h5></Col>
             </Row>            
             <Row className="whiteSpaceBetweenElements">
-                <Col    className="smallRedCheque primaryColor" 
-                        onClick={() => {props.addToBet()}} 
+                <Col    className={`smallRedCheque primaryColor ${props.pulse}`}
+                        onClick={() => {props.addToBet(); props.clickToPulse()}} 
                         xs={{span:9, offset:1}} 
                         sm={{span:8, offset:2}}
                         md={{span:6, offset:3}}
