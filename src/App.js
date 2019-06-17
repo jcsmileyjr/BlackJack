@@ -24,6 +24,28 @@ class App extends Component{
     }
   }
 
+  dealCardsA = () =>{
+    this.dealACard(this.state.playerStack);//deal a card to the player
+
+    const hand = this.state.dealerStack;//array to create dealer's hand of random cards 
+    setTimeout(()=>{hand.push(cards[0])},2000)//wait and add the cover card to the dealer hand   
+    
+
+    setTimeout(()=>{this.dealACard(this.state.playerStack)},4000);//wait and deal a card to the player
+    this.setState({playerDeckTotal:this.getCardPointsTotal(this.state.playerStack)});//update the dealer array of cards total points
+
+    setTimeout(()=>{this.dealACard(this.state.dealerStack)},6000);//wait and deal a card to the dealer
+    this.setState({dealerDeckTotal:this.getCardPointsTotal(this.state.dealerStack)});//update the dealer array of cards total points
+  }
+
+  dealCardsB =() =>{
+    this.dealACard(this.state.dealerStack);//deal the dealer one card
+
+    //update the dealer's hand total points
+    this.setState({dealerDeckTotal: this.getCardPointsTotal(this.state.dealerStack)});  
+
+  }
+
   //At the beginning of the game the player is dealt 2 face up cards and the dealer one face up/one face down
   dealCards = () =>{
 
