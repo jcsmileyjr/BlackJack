@@ -22,7 +22,7 @@ export default function CardArea(props){
                 <Col className="center" xs={10}><h5>{props.tableTitle}</h5></Col>
                 <Col className="center" xs={2}><h5>{props.total}</h5></Col>
             </Row>
-            <Row>
+            <Row >
                 {props.cardsGiven.map(function(deck, id){
                     return <Card key={id} cardValue={deck.pic} />
                 })}

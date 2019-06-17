@@ -20,6 +20,8 @@ export default function EndGame(props){
                      start={props.start}
                      addToBet={props.addToBet}
                      bet={props.bet} 
+                     pulse = {props.pulse}
+                     clickToPulse = {props.clickToPulse}
                      dealerTotal={props.dealerTotal} />
           </Col>
         </Row>

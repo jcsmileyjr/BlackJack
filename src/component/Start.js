@@ -10,8 +10,8 @@ export default function Start(props){
             <Row><Col><h3>Are you ready to play</h3></Col></Row>
             <Row><Col><h1>Black Jack</h1></Col></Row>
             <Row>
-                <Col    className="redCheque" 
-                        onClick={() => {props.addToBet()}} 
+                <Col    className={`redCheque ${props.pulse}`}
+                        onClick={() => {props.addToBet(); props.clickToPulse()}} 
                         xs={{span:9, offset:1}} 
                         sm={{span:8, offset:2}}
                         md={{span:6, offset:3}}

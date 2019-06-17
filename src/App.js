@@ -3,28 +3,25 @@ import { Container } from 'react-bootstrap';
 
 import './App.css';
 import {cards} from './component/cardDeck';
-import PlayGame from './component/PlayGame';
-import StartGame from './component/StartGame';
-import EndGame from './component/EndGame';
+import PlayGame from './component/PlayGame';//component to play the game
+import StartGame from './component/StartGame';//component to start the game
+import EndGame from './component/EndGame';//component to show the results of the game
 
 class App extends Component{
   constructor(props){
     super(props);
     this.state={
-      funds:100,
-      startPlay: false,
-      results: false,
-      winLose: "lose", 
-      currentBet: 5,
-      dealerStack:[],
-      playerStack:[],
-      dealerDeckTotal:0,
-      playerDeckTotal:0,
+      funds:100,//the player betting funds
+      startPlay: false,//when true, the player is allowed to play
+      results: false,//when true, the results of the game is shown
+      winLose: "lose", //state sent to the results component to show win, lose, or tie
+      currentBet: 5,//current player bet amount
+      dealerStack:[],//dealer hand, stack of cards
+      playerStack:[],//player hand, stack of cards
+      dealerDeckTotal:0,//dealer hand total
+      playerDeckTotal:0,//player hand total
+      pulseAnimation:"",//state to allow animation of red cheque to increase the bet
     }
-  }
-
-  componentDidMount() {
-    //this.dealCards();//deal two cards to player and dealer at the begining of the game
   }
 
   //At the beginning of the game the player is dealt 2 face up cards and the dealer one face up/one face down
@@ -230,12 +227,21 @@ class App extends Component{
     this.dealerHand();//Deal the dealer a hand
   }
 
+  //Set the animation for the red cheque on the start and end component to pulse
+  puslingCheque = () =>{
+    this.setState({pulseAnimation:"pulseWhenClicked"});
+
+    setTimeout(()=>{this.setState({pulseAnimation:""})}, 1000);
+  }
+
   render(){
     return(
       <Container>
         {this.state.startPlay === false && this.state.results ===false &&
         <StartGame  money={this.state.funds}
                     start={this.startGame}
+                    pulse = {this.state.pulseAnimation}
+                    clickToPulse = {this.puslingCheque}
                     addToBet = {this.increaseBet}
                     bet={this.state.currentBet} />
         }
@@ -256,6 +262,8 @@ class App extends Component{
                     start={this.startGame}          
                     bet={this.state.currentBet}
                     addToBet = {this.increaseBet}
+                    pulse = {this.state.pulseAnimation}
+                    clickToPulse = {this.puslingCheque}
                     dealerTotal = {this.state.dealerDeckTotal}
                     playerTotal = {this.state.playerDeckTotal} />
         }
