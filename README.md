@@ -1,7 +1,7 @@
 # BlackJack
 <hr>
 
-![gif of app](assets/gif/realtyMobile1.gif)
+![gif of app](src/assets/blackjack2.gif)
 
 ### Table of Contents
 1. Purpose
@@ -16,9 +16,8 @@ A traditional BlackJack web app
 ### Motivation:
 The main goal was to practice building apps in shorter time periods. This meant pre-planning with hi-fi wire-framing using Adobe XD, using React-Bootstrap while developing with React, practicing animations, and intentional breaking code into smaller components.  
 
-
 ### WireFrame
-![Screen-shot of Wireframe in use](assets/blackjack3.jpg)
+![Screen-shot of Wireframe in use](src/assets/blackjack3.jpg)
 
 ### This app was built with the following technologies:
 **React:** JavaScript front-end library for building user interfaces 
