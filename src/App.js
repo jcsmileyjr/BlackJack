@@ -3,24 +3,24 @@ import { Container } from 'react-bootstrap';
 
 import './App.css';
 import {cards} from './component/cardDeck';
-import PlayGame from './component/PlayGame';
-import StartGame from './component/StartGame';
-import EndGame from './component/EndGame';
+import PlayGame from './component/PlayGame';//component to play the game
+import StartGame from './component/StartGame';//component to start the game
+import EndGame from './component/EndGame';//component to show the results of the game
 
 class App extends Component{
   constructor(props){
     super(props);
     this.state={
-      funds:100,
-      startPlay: false,
-      results: false,
-      winLose: "lose", 
-      currentBet: 5,
-      dealerStack:[],
-      playerStack:[],
-      dealerDeckTotal:0,
-      playerDeckTotal:0,
-      pulseAnimation:"",
+      funds:100,//the player betting funds
+      startPlay: false,//when true, the player is allowed to play
+      results: false,//when true, the results of the game is shown
+      winLose: "lose", //state sent to the results component to show win, lose, or tie
+      currentBet: 5,//current player bet amount
+      dealerStack:[],//dealer hand, stack of cards
+      playerStack:[],//player hand, stack of cards
+      dealerDeckTotal:0,//dealer hand total
+      playerDeckTotal:0,//player hand total
+      pulseAnimation:"",//state to allow animation of red cheque to increase the bet
     }
   }
 
