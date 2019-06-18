@@ -13,13 +13,13 @@
 
 /*Primary color use in app*/
 .primaryColor {
-  color: #F3E40E;
+  color: #f3e40e;
 }
 
 /*Primary background color in app*/
 .appBackgroundColor {
-  background-image: radial-gradient(circle,#089108, #089108 ,rgb(4, 68, 4));
-  min-height: 100vh;  
+  background-image: radial-gradient(circle, #089108, #089108, rgb(4, 68, 4));
+  min-height: 100vh;
 }
 
 .whiteSpaceUnderNav {
@@ -28,17 +28,16 @@
 
 /*Show the red cheques picture in the back ground*/
 .redCheque {
-  background-image: url('./assets/redcheque-com.png');
-  background-repeat: no-repeat;/*make only one pic instead of several*/
+  background-image: url("./assets/redcheque-com.png");
+  background-repeat: no-repeat; /*make only one pic instead of several*/
   background-position: center; /*center align pic*/
   background-size: conatin;
-  height: 40vh;/*set the hight of the picture*/
-  font-size: 5rem;/*set the font-size of the data showing on top of the pic*/
-  display: flex;/*code to center the dollar amount showing on top of the picture*/
+  height: 40vh; /*set the hight of the picture*/
+  font-size: 5rem; /*set the font-size of the data showing on top of the pic*/
+  display: flex; /*code to center the dollar amount showing on top of the picture*/
   justify-content: center;
   align-items: center;
 }
-
 
 /**********************/
 /*      Nav Component */
@@ -46,7 +45,12 @@
 
 /*background color for the nav bar*/
 .navBackground {
-  background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgb(46, 44, 44), #060101);
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 0, 0, 0),
+    rgb(46, 44, 44),
+    #060101
+  );
 }
 
 /**********************/
@@ -55,19 +59,19 @@
 
 .buttonTextStyle {
   font-size: 1rem;
-  background-color:#F3E40E;
-  margin-top:1vh;/*add white space*/  
+  background-color: #f3e40e;
+  margin-top: 1vh; /*add white space*/
   box-shadow: 1px 2px 5px 2px rgb(58, 70, 60); /*shadow under the button*/
 }
 
 /*Use on the Start and EndGame primary button components*/
 .largeButtonSize {
-  width: 10rem;/*control the width of the button*/
+  width: 10rem; /*control the width of the button*/
 }
 
 /*Used on the  PlayArea primary button components*/
 .smallButtonSize {
-  width: 4rem;/*control the width of the button*/
+  width: 4rem; /*control the width of the button*/
 }
 
 /**********************/
@@ -76,20 +80,19 @@
 
 /*Background color for the dealer card area*/
 .dealerAreaColor {
-  background-color: #15EC1D;
+  background-color: #15ec1d;
   box-shadow: 1px 2px 5px 2px rgb(58, 70, 60); /*shadow under the table*/
 }
 
 /*Background color for the plyaer card area*/
 .playerAreaColor {
-  background-color: #82F882;
+  background-color: #82f882;
   box-shadow: 1px 2px 5px 2px rgb(58, 70, 60); /*shadow under the table*/
 }
 
 /*whitespace on CardArea components between the dealer and player card areas*/
 .playArea {
   margin-top: 1rem;
-  
 }
 
 /**********************/
@@ -98,8 +101,8 @@
 
 /*text style for PlayArea button's instructions*/
 .instructionText {
-  color: #F3E40E;
-  font-size: .8rem;
+  color: #f3e40e;
+  font-size: 0.8rem;
 }
 
 /**********************/
@@ -108,49 +111,56 @@
 
 /*Show the red cheques picture in the back ground in the EndGame's Results page*/
 .smallRedCheque {
-  background-image: url('./assets/redcheque-com.png');
-  background-repeat: no-repeat;/*make only one pic instead of several*/
+  background-image: url("./assets/redcheque-com.png");
+  background-repeat: no-repeat; /*make only one pic instead of several*/
   background-position: top; /*center align pic*/
-  background-size: contain;/*image will be the size of the container*/
-  height: 25vh;/*set the hight of the picture*/
-  font-size: 2rem;/*set the font-size of the data showing on top of the pic*/
+  background-size: contain; /*image will be the size of the container*/
+  height: 25vh; /*set the hight of the picture*/
+  font-size: 2rem; /*set the font-size of the data showing on top of the pic*/
   margin-top: 1rem;
-  display: flex;/*code to center the dollar amount showing on top of the picture*/
+  display: flex; /*code to center the dollar amount showing on top of the picture*/
   justify-content: center;
   align-items: center;
 }
 
 .pulseWhenClicked {
-  animation: pulse .5s ease-out;
+  animation: pulse 0.5s ease-out;
 }
 
 /*when the red cheque is click, it pulse*/
 @keyframes pulse {
-  0%   {transform:scale(1,1)}
-  50%   {transform:scale(1.5,1.5)}
-  100% {transform:scale(1,1)}
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.5, 1.5);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
 }
 
 .whiteSpaceBetweenElements {
-  margin-bottom: 2vh;/*add white space between image and instructions*/
+  margin-bottom: 2vh; /*add white space between image and instructions*/
 }
-
 
 /**********************/
 /* Card Component */
 /**********************/
 /*Set the style of the cards in the PlayGame/PlayArea/CardArea Component*/
 .cardStyle {
-  height: 5rem;/*set height of the cards*/
-  width: 5rem;/*set width of the cards*/
-  background-color: transparent;/*hide the background color*/
-  animation:dealing 1.5s ease-out;
+  height: 5rem; /*set height of the cards*/
+  width: 5rem; /*set width of the cards*/
+  background-color: transparent; /*hide the background color*/
+  animation: dealing 1.5s ease-out;
 }
 
 /*animate the cards from left to ending position while spinning*/
 @keyframes dealing {
-  0%   {transform:translate(-350px, 0px) rotate(520deg)}
-  100% {transform:translate(0px, 0px)}
+  0% {
+    transform: translate(-350px, 0px) rotate(520deg);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
 }
-
-
