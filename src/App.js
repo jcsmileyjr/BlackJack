@@ -25,38 +25,31 @@ class App extends Component{
   }
 
   //At the beginning of the game the player is dealt 2 face up cards and the dealer one face up/one face down
-  dealCards = () =>{
+  //All cards are dealt one at a time
+  dealCards =() =>{
+    this.dealACard(this.state.dealerStack);//deal the dealer one card
 
-    let playerCards = [];//array to create player's hand of random cards and assigned to playerStack state
-    const playerCard1 = this.randomCard();//get a random card
-    let playerCard2 = this.randomCard();//get a random cad
+    //update the dealer's hand total points
+    this.setState({dealerDeckTotal: this.getCardPointsTotal(this.state.dealerStack)});  
 
-    //check if the both cards are the same, if so get another random card
-    if(playerCard2 === playerCard1){
-      playerCard2 = this.randomCard();
-    }
+    //deal the player a card and update the points
+    setTimeout(()=>{
+      this.dealACard(this.state.playerStack); 
+      this.setState({playerDeckTotal: this.getCardPointsTotal(this.state.playerStack)})}
+      ,1000);
 
-    //create a temp array that will be used as the player hand and add each card
-    playerCards.push(cards[playerCard1]);
-    playerCards.push(cards[playerCard2]);
-
-    //set the cards played valued to true
-    cards[playerCard1].played = true;
-    cards[playerCard2].played = true;
-
-    let dealerCards = [];
-    const dealerCard1 = this.randomCard();//get a random card for the dealer
-
-    dealerCards.push(cards[dealerCard1]);//add the first card to the dealer hand
-    dealerCards.push(cards[0]);//add the cover card to the dealer hand
-
-    cards[dealerCard1].played = true;
-    cards[0].played = true;
-
-    this.setState({ playerStack: playerCards, 
-                    dealerStack:dealerCards,
-                    playerDeckTotal: this.getCardPointsTotal(playerCards),
-                    dealerDeckTotal:this.getCardPointsTotal(dealerCards)});                                
+    //deal the player a card and update the points
+    setTimeout(()=>{
+      this.dealACard(this.state.playerStack); 
+      this.setState({playerDeckTotal: this.getCardPointsTotal(this.state.playerStack)})}
+      ,2000);
+      
+    //deal the dealer a down card  
+    setTimeout(()=>{
+      const hand = this.state.dealerStack;//array to create dealer's hand of random cards
+      hand.push(cards[0]); 
+      this.setState({dealerStack:hand})}
+      ,3000);  
   }
 
   //standard method for getting a random index of the cards array
@@ -79,8 +72,7 @@ class App extends Component{
 
     hand.push(cards[cardNumber]);//add the card object from the cards array based on the index number
  
-    this.setState({stackOfCards:hand});//update the current array of cards objects
-    
+    this.setState({stackOfCards:hand});//update the current array of cards objects    
   }
 
   //Get a sum of all cards worth and update the state
@@ -154,8 +146,8 @@ class App extends Component{
         funds: previousState.funds - this.state.currentBet,
       }));      
     }  
-    //switch to the EndGame component with results of the game
-    this.setState({results:true, startPlay:false, winLose:gameResults});
+    //switch to the EndGame component with results of the game and reset player/dealer hands
+    this.setState({results:true, startPlay:false, winLose:gameResults,dealerStack:[], playerStack:[]});
   }
 
   //deals cards to the dealer till get a soft 17 or one card over
