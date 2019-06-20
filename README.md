@@ -1,7 +1,7 @@
 # BlackJack
 <hr>
 
-![gif of app](src/assets/blackjack2.gif)
+![gif of app](src/assets/blackjack3.gif)
 
 ### Table of Contents
 1. Purpose
