@@ -7,14 +7,13 @@
 ### Table of Contents
 
 1. Project Demo Link
-4. Objectives
 2. Purpose
 3. Motivation
 4. Wireframe
 5. How to play
 6. Technologies Used
 
-### Project Demo Link: [Index Cards App](https://jcsmileyjr.github.io/BlackJack/)
+### Project Demo Link: [BlackJack App](https://jcsmileyjr.github.io/BlackJack/)
 
 ### Purpose:
 
