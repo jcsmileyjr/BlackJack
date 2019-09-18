@@ -16,10 +16,10 @@
   color: #f3e40e;
 }
 
-/*Primary background color in app*/
+/*Primary background color in app and set height of primary area of usage*/
 .appBackgroundColor {
   background-image: radial-gradient(circle, #089108, #089108, rgb(4, 68, 4));
-  min-height: 100vh;
+  min-height: 90vh;
 }
 
 .whiteSpaceUnderNav {
@@ -43,14 +43,20 @@
 /*      Nav Component */
 /**********************/
 
-/*background color for the nav bar*/
+/*background color for the nav bar, nav bar 10% of screen, 
+center the informaton presented in the nav bar, increase font size*/
 .navBackground {
   background-image: linear-gradient(
     to bottom,
-    rgba(255, 0, 0, 0),
-    rgb(46, 44, 44),
+    rgb(134, 131, 131),
+    rgb(5, 5, 5),
     #060101
   );
+  min-height: 10vh;
+  display: flex; /*code to center the dollar amount showing on top of the picture*/
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
 }
 
 /**********************/
