@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Redirect} from "react-router-dom";
 import { Container } from "react-bootstrap";
 
 import "./App.css";
@@ -12,7 +13,6 @@ class App extends Component {
     super(props);
     this.state = {
       funds: 100, //the player betting funds
-      startPlay: false, //when true, the player is allowed to play
       results: false, //when true, the results of the game is shown
       winLose: "lose", //state sent to the results component to show win, lose, or tie
       currentBet: 5, //current player bet amount
@@ -127,8 +127,8 @@ class App extends Component {
 
   //called from the start button on the Start Game component to start the game
   startGame = () => {
-    this.setState({ startPlay: true, results: false });
     this.dealCards();
+    this.setState({results:false});
   };
 
   //Show the Results component
@@ -160,11 +160,13 @@ class App extends Component {
     //switch to the EndGame component with results of the game and reset player/dealer hands
     this.setState({
       results: true,
-      startPlay: false,
       winLose: gameResults,
       dealerStack: [],
       playerStack: []
     });
+
+    
+
   };
 
   //deals cards to the dealer till get a soft 17 or one card over
@@ -250,19 +252,20 @@ class App extends Component {
 
   render() {
     return (
-      <Container>
-        {this.state.startPlay === false && this.state.results === false && (
-          <StartGame
+      <Router>
+        <Container>
+        {this.state.results &&
+          <Redirect to="/end" />
+        }        
+        <Route exact path="/" render={props => <StartGame
             money={this.state.funds}
             start={this.startGame}
             pulse={this.state.pulseAnimation}
             clickToPulse={this.puslingCheque}
             addToBet={this.increaseBet}
             bet={this.state.currentBet}
-          />
-        )}
-        {this.state.startPlay === true && this.state.results === false && (
-          <PlayGame
+          />}  />
+        <Route path="/play" render={props => <PlayGame
             money={this.state.funds}
             hit={this.playerHit}
             stand={this.playerStand}
@@ -272,10 +275,8 @@ class App extends Component {
             playerTotal={this.state.playerDeckTotal}
             dealerCards={this.state.dealerStack}
             playerCards={this.state.playerStack}
-          />
-        )}
-        {this.state.results === true && (
-          <EndGame
+          />} />
+        <Route path="/end" render={props => <EndGame
             gameResults={this.state.winLose}
             money={this.state.funds}
             start={this.startGame}
@@ -285,9 +286,10 @@ class App extends Component {
             clickToPulse={this.puslingCheque}
             dealerTotal={this.state.dealerDeckTotal}
             playerTotal={this.state.playerDeckTotal}
-          />
-        )}
-      </Container>
+          />} />
+      
+        </Container>
+      </Router>
     );
   }
 }

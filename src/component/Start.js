@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 import "../App.css";
 import PrimaryButton from "./PrimaryButton";
@@ -41,11 +42,13 @@ export default function Start(props) {
       </Row>
       <Row>
         <Col>
-          <PrimaryButton
-            size="largeButtonSize"
-            title="Let's Play"
-            action={props.start}
-          />
+          <Link to="/play">
+            <PrimaryButton
+              size="largeButtonSize"
+              title="Let's Play"
+              action={props.start}
+            />
+          </Link>
         </Col>
       </Row>
     </Container>
