@@ -247,7 +247,6 @@ class App extends Component {
         <Route exact path="/" render={props => <StartGame
             money={this.state.funds}
             start={this.startGame}
-            pulse={this.state.pulseAnimation}
             addToBet={this.increaseBet}
             bet={this.state.currentBet}
           />}  />
@@ -268,7 +267,6 @@ class App extends Component {
             start={this.startGame}
             bet={this.state.currentBet}
             addToBet={this.increaseBet}
-            clickToPulse={this.puslingCheque}
             dealerTotal={this.state.dealerDeckTotal}
             playerTotal={this.state.playerDeckTotal}
           />} />
