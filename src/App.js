@@ -20,7 +20,6 @@ class App extends Component {
       playerStack: [], //player hand, stack of cards
       dealerDeckTotal: 0, //dealer hand total
       playerDeckTotal: 0, //player hand total
-      pulseAnimation: "" //state to allow animation of red cheque to increase the bet
     };
   }
 
@@ -164,9 +163,6 @@ class App extends Component {
       dealerStack: [],
       playerStack: []
     });
-
-    
-
   };
 
   //deals cards to the dealer till get a soft 17 or one card over
@@ -241,15 +237,6 @@ class App extends Component {
     this.dealerHand(); //Deal the dealer a hand
   };
 
-  //Set the animation for the red cheque on the start and end component to pulse
-  puslingCheque = () => {
-    this.setState({ pulseAnimation: "pulseWhenClicked" });
-
-    setTimeout(() => {
-      this.setState({ pulseAnimation: "" });
-    }, 1000);
-  };
-
   render() {
     return (
       <Router>
@@ -261,7 +248,6 @@ class App extends Component {
             money={this.state.funds}
             start={this.startGame}
             pulse={this.state.pulseAnimation}
-            clickToPulse={this.puslingCheque}
             addToBet={this.increaseBet}
             bet={this.state.currentBet}
           />}  />
@@ -282,7 +268,6 @@ class App extends Component {
             start={this.startGame}
             bet={this.state.currentBet}
             addToBet={this.increaseBet}
-            pulse={this.state.pulseAnimation}
             clickToPulse={this.puslingCheque}
             dealerTotal={this.state.dealerDeckTotal}
             playerTotal={this.state.playerDeckTotal}
