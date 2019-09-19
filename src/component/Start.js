@@ -7,7 +7,7 @@ import PrimaryButton from "./PrimaryButton";
 export default function Start(props) {
   return (
     <Container className="appBackgroundColor primaryColor center whiteSpaceUnderNav">
-      <Row>
+      <Row className="whitespaceBetweenNavStartTite">
         <Col>
           <h3>Are you ready to play</h3>
         </Col>

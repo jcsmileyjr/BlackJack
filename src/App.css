@@ -36,7 +36,7 @@
   background-repeat: no-repeat; /*make only one pic instead of several*/
   background-position: center; /*center align pic*/
   background-size: conatin;
-  height: 40vh; /*set the hight of the picture*/
+  height: 35vh; /*set the hight of the picture*/
   font-size: 5rem; /*set the font-size of the data showing on top of the pic*/
   display: flex; /*code to center the dollar amount showing on top of the picture*/
   justify-content: center;
@@ -61,6 +61,14 @@ center the informaton presented in the nav bar, increase font size*/
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
+}
+
+/**********************/
+/* Start Component */
+/**********************/
+
+.whitespaceBetweenNavStartTite {
+  margin-top: 4vh;
 }
 
 /**********************/
