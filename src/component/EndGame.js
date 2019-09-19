@@ -9,13 +9,7 @@ export default function EndGame(props) {
   return (
     <Container>
       <Row>
-        <Col
-          xs={{ span: 12 }}
-          sm={{ span: 10, offset: 1 }}
-          md={{ span: 8, offset: 2 }}
-          lg={{ span: 6, offset: 3 }}
-          xl={{ span: 6, offset: 3 }}
-        >
+        <Col>
           <Nav money={props.money} bet={props.bet} />
           <Results
             playerTotal={props.playerTotal}
