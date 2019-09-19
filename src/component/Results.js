@@ -29,18 +29,18 @@ export default function Results(props) {
         </Row>
       )}
       <Row className="whiteSpaceBetweenElements">
-        <Col className="center">
+        <Col className="pull-right">
           <h5>Dealer</h5>
         </Col>
-        <Col className="center">
+        <Col className="pull-left">
           <h5>{props.dealerTotal}</h5>
         </Col>
       </Row>
       <Row className="whiteSpaceBetweenElements">
-        <Col className="center">
+        <Col className="pull-right">
           <h5>Player</h5>
         </Col>
-        <Col className="center">
+        <Col className="pull-left">
           <h5>{props.playerTotal}</h5>
         </Col>
       </Row>

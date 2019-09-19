@@ -6,6 +6,10 @@
   text-align: right;
 }
 
+.pull-left {
+  text-align: left;
+}
+
 /*Used to center align things throughout the app*/
 .center {
   text-align: center;

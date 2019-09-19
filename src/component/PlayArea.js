@@ -26,7 +26,10 @@ export default function PlayArea(props) {
   return (
     <Container className="appBackgroundColor">
       <Row>
-        <Col>
+        <Col 
+          xs={{span:12}}
+          sm={{span:8, offset:2}}
+        >
           <CardArea
             bgColor="dealerAreaColor"
             cardsGiven={props.dealerCards}
@@ -41,27 +44,34 @@ export default function PlayArea(props) {
           />
         </Col>
       </Row>
-      {props.playerTotal < 17 && (
-        <ButtonChoice
-          title="Hit"
-          action={props.hit}
-          text={"Get another card. If your new total is over 17, you lose!"}
-        />
-      )}
+      <Row>
+        <Col
+          xs={{span:12}}
+          sm={{span:8, offset:2}}        
+        >
+          {props.playerTotal < 17 && (
+            <ButtonChoice
+              title="Hit"
+              action={props.hit}
+              text={"Get another card. If your new total is over 17, you lose!"}
+            />
+          )}
 
-      <ButtonChoice
-        title="Stand"
-        action={props.stand}
-        text={"Click to end your turn. The dealer starts drawing cards!"}
-      />
+          <ButtonChoice
+            title="Stand"
+            action={props.stand}
+            text={"Click to end your turn. The dealer starts drawing cards!"}
+          />
 
-      {props.playerTotal < 17 && (
-        <ButtonChoice
-          title={"Double Down"}
-          action={props.doubleDown}
-          text={"Double your bet, get one card, and the dealer turn starts!"}
-        />
-      )}
+          {props.playerTotal < 17 && (
+            <ButtonChoice
+              title={"Double Down"}
+              action={props.doubleDown}
+              text={"Double your bet, get one card, and the dealer turn starts!"}
+            />
+          )}
+        </Col>
+      </Row>
     </Container>
   );
 }
