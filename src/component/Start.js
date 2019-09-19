@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
@@ -6,6 +6,14 @@ import "../App.css";
 import PrimaryButton from "./PrimaryButton";
 
 export default function Start(props) {
+  const [pulseAnimation, setPulse] = useState("");
+
+  useEffect(() => {
+    setTimeout(() => {
+      setPulse("")
+    }, 1000);
+  });
+
   return (
     <Container className="appBackgroundColor primaryColor center whiteSpaceUnderNav">
       <Row className="whitespaceBetweenNavStartTite">
@@ -20,10 +28,10 @@ export default function Start(props) {
       </Row>
       <Row>
         <Col
-          className={`redCheque ${props.pulse}`}
+          className={`redCheque ${pulseAnimation}`}
           onClick={() => {
             props.addToBet();
-            props.clickToPulse();
+            setPulse("pulseWhenClicked");
           }}
           xs={{ span: 9, offset: 1 }}
           sm={{ span: 8, offset: 2 }}
