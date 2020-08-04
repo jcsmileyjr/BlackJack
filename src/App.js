@@ -270,7 +270,6 @@ class App extends Component {
             dealerTotal={this.state.dealerDeckTotal}
             playerTotal={this.state.playerDeckTotal}
           />} />
-      
         </Container>
       </Router>
     );

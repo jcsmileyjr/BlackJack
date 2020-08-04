@@ -4,6 +4,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import "../App.css";
 import Nav from "./Nav";
 import Start from "./Start";
+import Footer from "./Footer";
 
 export default function StartGame(props) {
   return (
@@ -19,6 +20,7 @@ export default function StartGame(props) {
             bet={props.bet}
             addToBet={props.addToBet}
           />
+          <Footer />
         </Col>
       </Row>
     </Container>
