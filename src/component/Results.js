@@ -16,7 +16,7 @@ useEffect(() => {
 });
 
   return (
-    <Container className="appBackgroundColor primaryColor center whiteSpaceUnderNav">
+    <Container className="resultsBackgroundColor  primaryColor center whiteSpaceUnderNav">
       {props.gameResults === "win" && (
         <Row className="whiteSpaceBetweenElements">
           <Col>
@@ -82,6 +82,17 @@ useEffect(() => {
             <PrimaryButton
               size="largeButtonSize"
               title="Let's Play"
+              action={props.start}
+            />
+          </Link>
+        </Col>
+      </Row>
+      <Row className="whiteSpaceBetweenElements">
+        <Col>
+          <Link to="/play">
+            <PrimaryButton
+              size="largeButtonSize"
+              title="Save to Scoreboard"
               action={props.start}
             />
           </Link>

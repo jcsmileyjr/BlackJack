@@ -162,6 +162,11 @@ center the informaton presented in the nav bar, increase font size*/
   margin-bottom: 2vh; /*add white space between image and instructions*/
 }
 
+.resultsBackgroundColor {
+  background-image: radial-gradient(circle, #089108, #089108, rgb(4, 68, 4));
+  min-height: 90vh;  
+}
+
 /**********************/
 /* Card Component */
 /**********************/
