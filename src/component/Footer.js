@@ -1,15 +1,21 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
 import "../App.css";
 
 export default function Footer(props) {
-  useEffect(() => { testing(); }, []);
+  const [winners, setWinners] = useState([]);
 
-  const testing = async () => {
-    const response = await fetch(`api/getNames`);
+  useEffect(() => { displayWinners(); }, []);
+
+  // Function to make API call to get list of names and funds, then sort it, and save the top three
+  const displayWinners = async () => {
+    const response = await fetch(`api/getNames`);// API call to get the data from airtable.com
 	const data = await response.json();// Extracts the JSON from the response.body and converts JSON string into a JavaScript object
-    console.log(data.data.winners)
+    let winnerList = data.data.winners
+    winnerList.sort(function(a, b){return b.fields.funds - a.fields.funds}); // sort data by funds from high to lowest
+    const topWinners = winnerList.slice(0,3);// only get the top 3
+    setWinners(topWinners);// store in component state
   }  
 
   return (
@@ -17,18 +23,16 @@ export default function Footer(props) {
       <Row>
         <Col className="center primaryColor">HIGH SCORES</Col>
       </Row>
-      <Row >
-        <Col className="center primaryColor">Wonderwoman</Col>
-        <Col className="center primaryColor">$11000 </Col>
-      </Row>
-      <Row >
-        <Col className="center primaryColor">Superman</Col>
-        <Col className="center primaryColor">$10000 </Col>
-      </Row>
-      <Row >
-        <Col className="center primaryColor">Ironman</Col>
-        <Col className="center primaryColor">$9000 </Col>
-      </Row>
+      {
+          winners.map((player, id) => {
+            return(
+              <Row key ={id}>
+                <Col className="center primaryColor">{player.fields.Name}</Col>
+                <Col className="center primaryColor">${player.fields.funds} </Col>
+              </Row>
+            );
+          })
+      }
     </Container>
   );
 }
