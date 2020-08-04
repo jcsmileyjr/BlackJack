@@ -17,6 +17,10 @@ useEffect(() => {
   }, 1000);
 });
 
+const saveUserToScoreboard = () => {
+  setShowSaveButton(false)
+}
+
   return (
     <Container className="resultsBackgroundColor  primaryColor center whiteSpaceUnderNav">
       {props.gameResults === "win" && (
@@ -106,13 +110,11 @@ useEffect(() => {
             <input type="text" value={playerName}  onChange={e => setPlayerName(e.target.value)} />
           </Modal.Body>
           <Modal.Footer>
-          <Link to="/play">
             <PrimaryButton
               size="largeButtonSize"
               title="Save to Scoreboard"
-              action={props.start}
+              action={() => saveUserToScoreboard()}
             />
-          </Link>
           </Modal.Footer>
       </Modal>
     </Container>
