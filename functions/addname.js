@@ -13,7 +13,7 @@ exports.handler = function(event, context, callback) {
 
     const newRecord= {
       'Name': playerName,
-      'funds':bank,
+      'funds':bank.toString(),
     }
     
     submitRecord(newRecord);
