@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Modal } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 import "../App.css";
@@ -8,6 +8,8 @@ import PrimaryButton from "./PrimaryButton";
 export default function Results(props) {
   
 const [pulseAnimation, setPulse] = useState("");
+const [showSaveButton, setShowSaveButton] = useState(false);
+const [playerName, setPlayerName] = useState("");
 
 useEffect(() => {
   setTimeout(() => {
@@ -89,6 +91,21 @@ useEffect(() => {
       </Row>
       <Row className="whiteSpaceBetweenElements">
         <Col>
+            <PrimaryButton
+              size="largeButtonSize"
+              title="Save to Scoreboard"
+              action={() => setShowSaveButton(true)}
+            />
+        </Col>
+      </Row>
+      <Modal show={showSaveButton} onHide={() => setShowSaveButton(false)} >
+          <Modal.Header closeButton>
+            <Modal.Title>Add your name to the ScoreBoard</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <input type="text" value={playerName}  onChange={e => setPlayerName(e.target.value)} />
+          </Modal.Body>
+          <Modal.Footer>
           <Link to="/play">
             <PrimaryButton
               size="largeButtonSize"
@@ -96,8 +113,8 @@ useEffect(() => {
               action={props.start}
             />
           </Link>
-        </Col>
-      </Row>
+          </Modal.Footer>
+      </Modal>
     </Container>
   );
 }
