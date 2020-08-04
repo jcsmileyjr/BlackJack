@@ -1,9 +1,17 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
 import "../App.css";
 
 export default function Footer(props) {
+  useEffect(() => { testing(); }, []);
+
+  const testing = async () => {
+    const response = await fetch(`api/getNames`);
+	const data = await response.json();// Extracts the JSON from the response.body and converts JSON string into a JavaScript object
+    console.log(data.data.winners)
+  }  
+
   return (
     <Container fluid className="footer-background">
       <Row>
