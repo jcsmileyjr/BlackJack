@@ -167,6 +167,11 @@ center the informaton presented in the nav bar, increase font size*/
   min-height: 90vh;  
 }
 
+.scoreboardBackground {
+  background-image: radial-gradient(circle, #089108, #089108, rgb(4, 68, 4));  
+  text-align: center;
+}
+
 /**********************/
 /* Card Component */
 /**********************/

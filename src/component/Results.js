@@ -102,7 +102,7 @@ const saveUserToScoreboard = () => {
             />
         </Col>
       </Row>
-      <Modal show={showSaveButton} onHide={() => setShowSaveButton(false)} >
+      <Modal show={showSaveButton} onHide={() => setShowSaveButton(false)} className="scoreboardBackground" >
           <Modal.Header closeButton>
             <Modal.Title>Add your name to the ScoreBoard</Modal.Title>
           </Modal.Header>
