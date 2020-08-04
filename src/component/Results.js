@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { Container, Row, Col, Modal } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 import "../App.css";
 import PrimaryButton from "./PrimaryButton";
@@ -17,7 +18,10 @@ useEffect(() => {
   }, 1000);
 });
 
-const saveUserToScoreboard = () => {
+const saveUserToScoreboard = () => {    
+  const url = "api/addName"
+  axios.post(url,{"playerName":playerName, "bank":props.money});  
+console.log(`${playerName} has this much money ${props.money}`)
   setShowSaveButton(false)
 }
 
