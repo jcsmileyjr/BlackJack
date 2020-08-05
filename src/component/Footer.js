@@ -10,7 +10,7 @@ export default function Footer(props) {
 
   // Function to make API call to get list of names and funds, then sort it, and save the top three
   const displayWinners = async () => {
-    const response = await fetch(`api/getNames`);// API call to get the data from airtable.com
+    const response = await fetch(`https://smiley-blackjack-game.netlify.app/.netlify/functions/getNames`);// API call to get the data from airtable.com
 	const data = await response.json();// Extracts the JSON from the response.body and converts JSON string into a JavaScript object
     let winnerList = data.data.winners
     winnerList.sort(function(a, b){return b.fields.funds - a.fields.funds}); // sort data by funds from high to lowest
