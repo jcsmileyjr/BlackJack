@@ -19,7 +19,7 @@ useEffect(() => {
 });
 
 const saveUserToScoreboard = () => {    
-  const url = "https://smiley-blackjack-game.netlify.app/.netlify/functions/addname"
+  const url = "api/addname"
   axios.post(url,{"playerName":playerName, "bank":props.money});  
 console.log(`${playerName} has this much money ${props.money}`)
   setShowSaveButton(false)
