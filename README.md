@@ -2,7 +2,7 @@
 
 <hr>
 
-![gif of app](src/assets/blackjack-1.gif)
+![gif of app](src/assets/blackjack-2.gif)
 
 ### Table of Contents
 
