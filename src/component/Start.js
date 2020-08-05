@@ -18,7 +18,7 @@ export default function Start(props) {
     <Container className="appBackgroundColor primaryColor center whiteSpaceUnderNav">
       <Row className="whitespaceBetweenNavStartTite">
         <Col>
-          <h3>Are you ready to play</h3>
+          <h3>Let's Play</h3>
         </Col>
       </Row>
       <Row>
@@ -54,6 +54,17 @@ export default function Start(props) {
             <PrimaryButton
               size="largeButtonSize"
               title="Let's Play"
+              action={props.start}
+            />
+          </Link>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Link to="/scoreboard">
+            <PrimaryButton
+              size="largeButtonSize"
+              title="ScoreBoard"
               action={props.start}
             />
           </Link>
