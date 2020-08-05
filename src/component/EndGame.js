@@ -21,6 +21,7 @@ export default function EndGame(props) {
             clickToPulse={props.clickToPulse}
             dealerTotal={props.dealerTotal}
             money={props.money}
+            playerLeave = {props.playerLeave}
           />
         </Col>
       </Row>
