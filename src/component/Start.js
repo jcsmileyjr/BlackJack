@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { Container, Row, Col, Modal } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 import "../App.css";
@@ -7,7 +7,6 @@ import PrimaryButton from "./PrimaryButton";
 
 export default function Start(props) {
   const [pulseAnimation, setPulse] = useState("");
-  const [showSaveButton, setShowSaveButton] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
