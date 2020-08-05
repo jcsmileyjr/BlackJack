@@ -26,6 +26,11 @@
   min-height: 75vh;
 }
 
+/*Fix bug when added more elements to start screen now out of room*/
+.startScreenHeightBugFix {
+  min-height: 70vh;
+}
+
 .whiteSpaceUnderNav {
   padding-top: 2vh;
 }
@@ -199,6 +204,6 @@ center the informaton presented in the nav bar, increase font size*/
 
 .footer-background {
   background-color: black;
-  min-height: 10vh;
+  min-height: 25vh;
 }
 
