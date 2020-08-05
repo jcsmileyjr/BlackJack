@@ -23,7 +23,7 @@
 /*Primary background color in app and set height of primary area of usage*/
 .appBackgroundColor {
   background-image: radial-gradient(circle, #089108, #089108, rgb(4, 68, 4));
-  min-height: 90vh;
+  min-height: 75vh;
 }
 
 .whiteSpaceUnderNav {
@@ -35,8 +35,8 @@
   background-image: url("./assets/redcheque-com.png");
   background-repeat: no-repeat; /*make only one pic instead of several*/
   background-position: center; /*center align pic*/
-  background-size: conatin;
-  height: 35vh; /*set the hight of the picture*/
+  background-size: contain;
+  height: 30vh; /*set the hight of the picture*/
   font-size: 5rem; /*set the font-size of the data showing on top of the pic*/
   display: flex; /*code to center the dollar amount showing on top of the picture*/
   justify-content: center;
@@ -52,11 +52,11 @@ center the informaton presented in the nav bar, increase font size*/
 .navBackground {
   background-image: linear-gradient(
     to bottom,
-    rgb(134, 131, 131),
+    rgb(66, 65, 65),
     rgb(5, 5, 5),
     #060101
   );
-  min-height: 10vh;
+  min-height: 7vh;
   display: flex; /*code to center the dollar amount showing on top of the picture*/
   justify-content: center;
   align-items: center;
@@ -68,7 +68,7 @@ center the informaton presented in the nav bar, increase font size*/
 /**********************/
 
 .whitespaceBetweenNavStartTite {
-  margin-top: 4vh;
+  margin-top: 1vh;
 }
 
 /**********************/
@@ -162,6 +162,16 @@ center the informaton presented in the nav bar, increase font size*/
   margin-bottom: 2vh; /*add white space between image and instructions*/
 }
 
+.resultsBackgroundColor {
+  background-image: radial-gradient(circle, #089108, #089108, rgb(4, 68, 4));
+  min-height: 90vh;  
+}
+
+.scoreboardBackground {
+  background-image: radial-gradient(circle, #089108, #089108, rgb(4, 68, 4));  
+  text-align: center;
+}
+
 /**********************/
 /* Card Component */
 /**********************/
@@ -182,3 +192,13 @@ center the informaton presented in the nav bar, increase font size*/
     transform: translate(0px, 0px);
   }
 }
+
+/**********************/
+/*  Footer Component  */
+/**********************/
+
+.footer-background {
+  background-color: black;
+  min-height: 10vh;
+}
+
