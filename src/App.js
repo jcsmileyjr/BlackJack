@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Redirect} from "react-router-dom";
 import { Container } from "react-bootstrap";
+import swal from 'sweetalert';
 
 import "./App.css";
 import { cards } from "./component/cardDeck";
@@ -21,6 +22,12 @@ class App extends Component {
       dealerDeckTotal: 0, //dealer hand total
       playerDeckTotal: 0, //player hand total
     };
+  }
+
+  // Alert thanking a player for playing
+  endGameAlert = () => {
+    swal("Thank you for playing. Good luck next time");
+    this.setState({funds:100});
   }
 
   //At the beginning of the game the player is dealt 2 face up cards and the dealer one face up/one face down
@@ -269,6 +276,7 @@ class App extends Component {
             addToBet={this.increaseBet}
             dealerTotal={this.state.dealerDeckTotal}
             playerTotal={this.state.playerDeckTotal}
+            playerLeave = {this.endGameAlert}
           />} />
         </Container>
       </Router>

@@ -106,6 +106,17 @@ console.log(`${playerName} has this much money ${props.money}`)
             />
         </Col>
       </Row>
+      <Row className="whiteSpaceBetweenElements">
+        <Col>
+          <Link to="/">
+            <PrimaryButton
+              size="largeButtonSize"
+              title="End Game"
+              action={props.playerLeave}
+            />
+          </Link>
+        </Col>
+      </Row>
       <Modal show={showSaveButton} onHide={() => setShowSaveButton(false)} className="scoreboardBackground" >
           <Modal.Header closeButton>
             <Modal.Title>Add your name to the ScoreBoard</Modal.Title>
