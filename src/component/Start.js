@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Modal } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 import "../App.css";
@@ -7,6 +7,7 @@ import PrimaryButton from "./PrimaryButton";
 
 export default function Start(props) {
   const [pulseAnimation, setPulse] = useState("");
+  const [showSaveButton, setShowSaveButton] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -15,10 +16,10 @@ export default function Start(props) {
   });
 
   return (
-    <Container className="appBackgroundColor primaryColor center whiteSpaceUnderNav">
+    <Container className="appBackgroundColor primaryColor center whiteSpaceUnderNav startScreenHeightBugFix">
       <Row className="whitespaceBetweenNavStartTite">
         <Col>
-          <h3>Are you ready to play</h3>
+          <h3>Let's Play</h3>
         </Col>
       </Row>
       <Row>
