@@ -2,5 +2,5 @@
     functions = "functions"
 [[redirects]]
     from = "/api/*"
-    to = "/.netlify/functions/:splat"
+    to = "smiley-blackjack-game.netlify.app/.netlify/functions/:splat"
     status = 200
