@@ -2,7 +2,7 @@
 
 <hr>
 
-![gif of app](src/assets/blackjack3.gif)
+![gif of app](src/assets/blackjack-1.gif)
 
 ### Table of Contents
 
@@ -13,7 +13,7 @@
 5. How to play
 6. Technologies Used
 
-### Project Demo Link: [BlackJack App](https://jcsmileyjr.github.io/BlackJack/)
+### Project Demo Link: [BlackJack App](https://smiley-blackjack-game.netlify.app/)
 
 ### Purpose:
 
@@ -22,6 +22,9 @@ A traditional BlackJack web app
 ### Motivation:
 
 The goal was to practice building apps in shorter time periods, write cleaner code, and improve user experience with animation. This meant pre-planning with hi-fi wire-framing using Adobe XD, using React-Bootstrap while developing with React, practicing animations, and intentional breaking the code into smaller components.
+
+##### Special Update 
+This project was updated a year later to include backend integration with Netlify server-less functions and database support using AirTable.com. The goal was to allow a user to save their high score and see other players high score.
 
 ### WireFrame
 
@@ -37,6 +40,10 @@ The goal was to practice building apps in shorter time periods, write cleaner co
 
 **React:** JavaScript front-end library for building user interfaces
 
+**Netlify**: Web developer platform for hosting infrastructure, continuous integration, deployment pipeline with GitHub, and serverless backend services.
+
+**Airtable** Web developer platform with a spreadsheet-database hybrid that allow users to access to data.
+
 **Git-Hub:** Web-based version control repository and Internet hosting service
 
 **Abode XD** A wire-framing tool used to create a mockup/visual of what is to be coded
@@ -47,4 +54,4 @@ The goal was to practice building apps in shorter time periods, write cleaner co
 
 **CSS:** A formatting language for styling web pages
 
-_Create by JC Smiley in June of 2019_
+_Updated by JC Smiley in August of 2020_
