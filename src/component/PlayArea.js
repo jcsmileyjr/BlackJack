@@ -53,7 +53,7 @@ export default function PlayArea(props) {
             <ButtonChoice
               title="Hit"
               action={props.hit}
-              text={"Get another card. If your new total is over 17, you lose!"}
+              text={"Get another card. If your new total is over 21, you lose!"}
             />
           )}
 
