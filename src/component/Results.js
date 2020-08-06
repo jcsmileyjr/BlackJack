@@ -55,57 +55,61 @@ const saveUserToScoreboard = () => {
           <h5>Player: {props.playerTotal}</h5>
         </Col>
       </Row>
-      <Row className="whiteSpaceBetweenElements">
-        <Col
-          className={`smallRedCheque primaryColor ${pulseAnimation}`}
-          onClick={() => {
-            props.addToBet();
-            setPulse("pulseWhenClicked");
-          }}
-          xs={{ span: 9, offset: 1 }}
-          sm={{ span: 8, offset: 2 }}
-          md={{ span: 6, offset: 3 }}
-          lg={{ span: 6, offset: 3 }}
-          xl={{ span: 6, offset: 3 }}
-        >
-          ${props.bet}
-        </Col>
-      </Row>
-      <Row className="center whiteSpaceBetweenElements">
-        <Col xs={12} className="instructionText">
-          Click the chip to increase your bet, in increments of $5, up to your
-          funds limit
-        </Col>
-      </Row>
-      <Row className="whiteSpaceBetweenElements">
-        <Col>
-          <Link to="/play">
-            <PrimaryButton
-              size="largeButtonSize"
-              title="Let's Play"
-              action={props.start}
-            />
-          </Link>
-        </Col>
-      </Row>
-      <Row className="whiteSpaceBetweenElements">
-        <Col>
-          <PrimaryButton
-            size="largeButtonSize"
-            title="Reset Bet Amount"
-            action={props.resetBet}
-          />
-        </Col>
-      </Row>
-      <Row className="whiteSpaceBetweenElements">
-        <Col>
-            <PrimaryButton
-              size="largeButtonSize"
-              title="Save to Scoreboard"
-              action={() => setShowSaveButton(true)}
-            />
-        </Col>
-      </Row>
+      {props.money > 0 &&
+        <div>
+          <Row className="whiteSpaceBetweenElements">
+            <Col
+              className={`smallRedCheque primaryColor ${pulseAnimation}`}
+              onClick={() => {
+                props.addToBet();
+                setPulse("pulseWhenClicked");
+              }}
+              xs={{ span: 9, offset: 1 }}
+              sm={{ span: 8, offset: 2 }}
+              md={{ span: 6, offset: 3 }}
+              lg={{ span: 6, offset: 3 }}
+              xl={{ span: 6, offset: 3 }}
+            >
+              ${props.bet}
+            </Col>
+          </Row>
+          <Row className="center whiteSpaceBetweenElements">
+            <Col xs={12} className="instructionText">
+              Click the chip to increase your bet, in increments of $5, up to your
+              funds limit
+            </Col>
+          </Row>
+          <Row className="whiteSpaceBetweenElements">
+            <Col>
+              <Link to="/play">
+                <PrimaryButton
+                  size="largeButtonSize"
+                  title="Let's Play"
+                  action={props.start}
+                />
+              </Link>
+            </Col>
+          </Row>
+          <Row className="whiteSpaceBetweenElements">
+            <Col>
+              <PrimaryButton
+                size="largeButtonSize"
+                title="Reset Bet Amount"
+                action={props.resetBet}
+              />
+            </Col>
+          </Row>
+          <Row className="whiteSpaceBetweenElements">
+            <Col>
+                <PrimaryButton
+                  size="largeButtonSize"
+                  title="Save to Scoreboard"
+                  action={() => setShowSaveButton(true)}
+                />
+            </Col>
+          </Row>
+        </div>
+      }
       <Row className="whiteSpaceBetweenElements">
         <Col>
           <Link to="/">
