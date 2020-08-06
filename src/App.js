@@ -30,6 +30,11 @@ class App extends Component {
     this.setState({funds:100});
   }
 
+  //Reset Bet amount for button on Results page
+  resetBetAmount = () => {
+    this.setState({currentBet:5});
+  }
+
   //At the beginning of the game the player is dealt 2 face up cards and the dealer one face up/one face down
   //All cards are dealt one at a time
   dealCards = () => {
@@ -277,6 +282,7 @@ class App extends Component {
             dealerTotal={this.state.dealerDeckTotal}
             playerTotal={this.state.playerDeckTotal}
             playerLeave = {this.endGameAlert}
+            resetBet = {this.resetBetAmount}
           />} />
         </Container>
       </Router>

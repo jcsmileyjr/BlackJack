@@ -27,14 +27,14 @@ const saveUserToScoreboard = () => {
   return (
     <Container className="resultsBackgroundColor  primaryColor center whiteSpaceUnderNav">
       {props.gameResults === "win" && (
-        <Row className="whiteSpaceBetweenElements">
+        <Row>
           <Col>
             <h1>YOU WON!!!</h1>
           </Col>
         </Row>
       )}
       {props.gameResults === "lose" && (
-        <Row className="whiteSpaceBetweenElements">
+        <Row>
           <Col>
             <h1>You LOSE!!!</h1>
           </Col>
@@ -47,20 +47,12 @@ const saveUserToScoreboard = () => {
           </Col>
         </Row>
       )}
-      <Row className="whiteSpaceBetweenElements">
-        <Col className="pull-right">
-          <h5>Dealer</h5>
+      <Row>
+        <Col >
+          <h5>Dealer: {props.dealerTotal}</h5>
         </Col>
-        <Col className="pull-left">
-          <h5>{props.dealerTotal}</h5>
-        </Col>
-      </Row>
-      <Row className="whiteSpaceBetweenElements">
-        <Col className="pull-right">
-          <h5>Player</h5>
-        </Col>
-        <Col className="pull-left">
-          <h5>{props.playerTotal}</h5>
+        <Col >
+          <h5>Player: {props.playerTotal}</h5>
         </Col>
       </Row>
       <Row className="whiteSpaceBetweenElements">
@@ -94,6 +86,15 @@ const saveUserToScoreboard = () => {
               action={props.start}
             />
           </Link>
+        </Col>
+      </Row>
+      <Row className="whiteSpaceBetweenElements">
+        <Col>
+          <PrimaryButton
+            size="largeButtonSize"
+            title="Reset Bet Amount"
+            action={props.resetBet}
+          />
         </Col>
       </Row>
       <Row className="whiteSpaceBetweenElements">
