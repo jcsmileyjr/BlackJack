@@ -136,7 +136,7 @@ class App extends Component {
     }
   };
 
-  //called from the start button on the Start Game component to start the game
+  //called from the start button on the Start Game and Results component to start the game
   startGame = () => {
     this.dealCards();
     this.setState({results:false});
