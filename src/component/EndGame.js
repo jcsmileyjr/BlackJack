@@ -22,6 +22,7 @@ export default function EndGame(props) {
             dealerTotal={props.dealerTotal}
             money={props.money}
             playerLeave = {props.playerLeave}
+            resetBet = {props.resetBet}
           />
         </Col>
       </Row>

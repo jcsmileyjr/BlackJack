@@ -53,7 +53,7 @@ export default function PlayArea(props) {
             <ButtonChoice
               title="Hit"
               action={props.hit}
-              text={"Get another card. If your new total is over 17, you lose!"}
+              text={"Get another card. If your new total is over 21, you lose!"}
             />
           )}
 
@@ -62,6 +62,12 @@ export default function PlayArea(props) {
             action={props.stand}
             text={"Click to end your turn. The dealer starts drawing cards!"}
           />
+
+          {props.playerTotal >= 17 && props.dealerCards.length <3 && props.playerCards.length === 2 && (
+            <p className="primaryColor whiteSpaceUnderNav">You must stand if your total is greater then 17.</p>
+          )
+
+          }
 
           {props.playerTotal < 17 && (
             <ButtonChoice
