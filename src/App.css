@@ -87,6 +87,13 @@ center the informaton presented in the nav bar, increase font size*/
   box-shadow: 1px 2px 5px 2px rgb(58, 70, 60); /*shadow under the button*/
 }
 
+/* Adjust whitespace between buttons on smaller screens */
+@media (max-height: 700px) {
+	.buttonTextStyle {
+		margin-top: .3vh;
+	}
+}
+
 /*Use on the Start and EndGame primary button components*/
 .largeButtonSize {
   width: 10rem; /*control the width of the button*/
