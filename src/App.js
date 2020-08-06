@@ -27,7 +27,7 @@ class App extends Component {
   // Alert thanking a player for playing
   endGameAlert = () => {
     swal("Thank you for playing. Good luck next time");
-    this.setState({funds:100});
+    this.setState({funds:100, currentBet:5});
   }
 
   //Reset Bet amount for button on Results page
