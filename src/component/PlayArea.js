@@ -63,6 +63,12 @@ export default function PlayArea(props) {
             text={"Click to end your turn. The dealer starts drawing cards!"}
           />
 
+          {props.playerTotal >= 17 && props.dealerCards.length <3 && props.playerCards.length === 2 && (
+            <p className="primaryColor whiteSpaceUnderNav">You must stand if your total is greater then 17.</p>
+          )
+
+          }
+
           {props.playerTotal < 17 && (
             <ButtonChoice
               title={"Double Down"}
